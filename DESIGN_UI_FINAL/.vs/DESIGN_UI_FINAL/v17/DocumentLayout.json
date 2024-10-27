@@ -3,28 +3,44 @@
   "WorkspaceRootPath": "C:\\Users\\Y O G A\\source\\repos\\DESIGN_UI_FINAL(Before Crystal Report)\\DESIGN_UI_FINAL\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{B753D6A1-D6B0-4B8C-9595-91F2E851DA45}|DESIGN_UI_FINAL\\DESIGN_UI_FINAL.csproj|C:\\Users\\Y O G A\\source\\repos\\DESIGN_UI_FINAL(Before Crystal Report)\\DESIGN_UI_FINAL\\design_ui_final\\dashboardform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{B753D6A1-D6B0-4B8C-9595-91F2E851DA45}|DESIGN_UI_FINAL\\DESIGN_UI_FINAL.csproj|solutionrelative:design_ui_final\\dashboardform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{B753D6A1-D6B0-4B8C-9595-91F2E851DA45}|DESIGN_UI_FINAL\\DESIGN_UI_FINAL.csproj|C:\\Users\\Y O G A\\source\\repos\\DESIGN_UI_FINAL(Before Crystal Report)\\DESIGN_UI_FINAL\\design_ui_final\\settingform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{B753D6A1-D6B0-4B8C-9595-91F2E851DA45}|DESIGN_UI_FINAL\\DESIGN_UI_FINAL.csproj|solutionrelative:design_ui_final\\settingform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B753D6A1-D6B0-4B8C-9595-91F2E851DA45}|DESIGN_UI_FINAL\\DESIGN_UI_FINAL.csproj|C:\\Users\\Y O G A\\source\\repos\\DESIGN_UI_FINAL(Before Crystal Report)\\DESIGN_UI_FINAL\\design_ui_final\\roommanagementform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{B753D6A1-D6B0-4B8C-9595-91F2E851DA45}|DESIGN_UI_FINAL\\DESIGN_UI_FINAL.csproj|solutionrelative:design_ui_final\\roommanagementform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B753D6A1-D6B0-4B8C-9595-91F2E851DA45}|DESIGN_UI_FINAL\\DESIGN_UI_FINAL.csproj|c:\\users\\y o g a\\source\\repos\\design_ui_final(before crystal report)\\design_ui_final\\design_ui_final\\monitormanagementform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{B753D6A1-D6B0-4B8C-9595-91F2E851DA45}|DESIGN_UI_FINAL\\DESIGN_UI_FINAL.csproj|solutionrelative:design_ui_final\\monitormanagementform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
       "AbsoluteMoniker": "D:0:0:{B753D6A1-D6B0-4B8C-9595-91F2E851DA45}|DESIGN_UI_FINAL\\DESIGN_UI_FINAL.csproj|C:\\Users\\Y O G A\\source\\repos\\DESIGN_UI_FINAL(Before Crystal Report)\\DESIGN_UI_FINAL\\design_ui_final\\paymentform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{B753D6A1-D6B0-4B8C-9595-91F2E851DA45}|DESIGN_UI_FINAL\\DESIGN_UI_FINAL.csproj|solutionrelative:design_ui_final\\paymentform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{B753D6A1-D6B0-4B8C-9595-91F2E851DA45}|DESIGN_UI_FINAL\\DESIGN_UI_FINAL.csproj|C:\\Users\\Y O G A\\source\\repos\\DESIGN_UI_FINAL(Before Crystal Report)\\DESIGN_UI_FINAL\\design_ui_final\\kournerloginapp.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{B753D6A1-D6B0-4B8C-9595-91F2E851DA45}|DESIGN_UI_FINAL\\DESIGN_UI_FINAL.csproj|solutionrelative:design_ui_final\\kournerloginapp.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B753D6A1-D6B0-4B8C-9595-91F2E851DA45}|DESIGN_UI_FINAL\\DESIGN_UI_FINAL.csproj|c:\\users\\y o g a\\source\\repos\\design_ui_final(before crystal report)\\design_ui_final\\design_ui_final\\dashboardform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{B753D6A1-D6B0-4B8C-9595-91F2E851DA45}|DESIGN_UI_FINAL\\DESIGN_UI_FINAL.csproj|solutionrelative:design_ui_final\\dashboardform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B753D6A1-D6B0-4B8C-9595-91F2E851DA45}|DESIGN_UI_FINAL\\DESIGN_UI_FINAL.csproj|C:\\Users\\Y O G A\\source\\repos\\DESIGN_UI_FINAL(Before Crystal Report)\\DESIGN_UI_FINAL\\design_ui_final\\crsettingform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{B753D6A1-D6B0-4B8C-9595-91F2E851DA45}|DESIGN_UI_FINAL\\DESIGN_UI_FINAL.csproj|solutionrelative:design_ui_final\\crsettingform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{B753D6A1-D6B0-4B8C-9595-91F2E851DA45}|DESIGN_UI_FINAL\\DESIGN_UI_FINAL.csproj|C:\\Users\\Y O G A\\source\\repos\\DESIGN_UI_FINAL(Before Crystal Report)\\DESIGN_UI_FINAL\\design_ui_final\\dashboardform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B753D6A1-D6B0-4B8C-9595-91F2E851DA45}|DESIGN_UI_FINAL\\DESIGN_UI_FINAL.csproj|solutionrelative:design_ui_final\\dashboardform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B753D6A1-D6B0-4B8C-9595-91F2E851DA45}|DESIGN_UI_FINAL\\DESIGN_UI_FINAL.csproj|c:\\users\\y o g a\\source\\repos\\design_ui_final(before crystal report)\\design_ui_final\\design_ui_final\\crpaymentform.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{B753D6A1-D6B0-4B8C-9595-91F2E851DA45}|DESIGN_UI_FINAL\\DESIGN_UI_FINAL.csproj|C:\\Users\\Y O G A\\source\\repos\\DESIGN_UI_FINAL(Before Crystal Report)\\DESIGN_UI_FINAL\\design_ui_final\\crpaymentform.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B753D6A1-D6B0-4B8C-9595-91F2E851DA45}|DESIGN_UI_FINAL\\DESIGN_UI_FINAL.csproj|solutionrelative:design_ui_final\\crpaymentform.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{B753D6A1-D6B0-4B8C-9595-91F2E851DA45}|DESIGN_UI_FINAL\\DESIGN_UI_FINAL.csproj|C:\\Users\\Y O G A\\source\\repos\\DESIGN_UI_FINAL(Before Crystal Report)\\DESIGN_UI_FINAL\\design_ui_final\\paymentform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B753D6A1-D6B0-4B8C-9595-91F2E851DA45}|DESIGN_UI_FINAL\\DESIGN_UI_FINAL.csproj|solutionrelative:design_ui_final\\paymentform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B753D6A1-D6B0-4B8C-9595-91F2E851DA45}|DESIGN_UI_FINAL\\DESIGN_UI_FINAL.csproj|C:\\Users\\Y O G A\\source\\repos\\DESIGN_UI_FINAL(Before Crystal Report)\\DESIGN_UI_FINAL\\design_ui_final\\settingform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{B753D6A1-D6B0-4B8C-9595-91F2E851DA45}|DESIGN_UI_FINAL\\DESIGN_UI_FINAL.csproj|solutionrelative:design_ui_final\\settingform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
       "AbsoluteMoniker": "D:0:0:{B753D6A1-D6B0-4B8C-9595-91F2E851DA45}|DESIGN_UI_FINAL\\DESIGN_UI_FINAL.csproj|C:\\Users\\Y O G A\\source\\repos\\DESIGN_UI_FINAL(Before Crystal Report)\\DESIGN_UI_FINAL\\design_ui_final\\crpaymentform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
@@ -43,14 +59,6 @@
       "RelativeMoniker": "D:0:0:{B753D6A1-D6B0-4B8C-9595-91F2E851DA45}|DESIGN_UI_FINAL\\DESIGN_UI_FINAL.csproj|solutionrelative:design_ui_final\\cradmin.rpt||{C0EF7560-990E-4D61-B970-65A6096B6866}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B753D6A1-D6B0-4B8C-9595-91F2E851DA45}|DESIGN_UI_FINAL\\DESIGN_UI_FINAL.csproj|C:\\Users\\Y O G A\\source\\repos\\DESIGN_UI_FINAL(Before Crystal Report)\\DESIGN_UI_FINAL\\design_ui_final\\crsettingform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{B753D6A1-D6B0-4B8C-9595-91F2E851DA45}|DESIGN_UI_FINAL\\DESIGN_UI_FINAL.csproj|solutionrelative:design_ui_final\\crsettingform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B753D6A1-D6B0-4B8C-9595-91F2E851DA45}|DESIGN_UI_FINAL\\DESIGN_UI_FINAL.csproj|C:\\Users\\Y O G A\\source\\repos\\DESIGN_UI_FINAL(Before Crystal Report)\\DESIGN_UI_FINAL\\design_ui_final\\kournerloginapp.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{B753D6A1-D6B0-4B8C-9595-91F2E851DA45}|DESIGN_UI_FINAL\\DESIGN_UI_FINAL.csproj|solutionrelative:design_ui_final\\kournerloginapp.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{B753D6A1-D6B0-4B8C-9595-91F2E851DA45}|DESIGN_UI_FINAL\\DESIGN_UI_FINAL.csproj|C:\\Users\\Y O G A\\source\\repos\\DESIGN_UI_FINAL(Before Crystal Report)\\DESIGN_UI_FINAL\\design_ui_final\\settingform.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B753D6A1-D6B0-4B8C-9595-91F2E851DA45}|DESIGN_UI_FINAL\\DESIGN_UI_FINAL.csproj|solutionrelative:design_ui_final\\settingform.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -61,10 +69,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{B753D6A1-D6B0-4B8C-9595-91F2E851DA45}|DESIGN_UI_FINAL\\DESIGN_UI_FINAL.csproj|C:\\Users\\Y O G A\\source\\repos\\DESIGN_UI_FINAL(Before Crystal Report)\\DESIGN_UI_FINAL\\design_ui_final\\roommanagementform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B753D6A1-D6B0-4B8C-9595-91F2E851DA45}|DESIGN_UI_FINAL\\DESIGN_UI_FINAL.csproj|solutionrelative:design_ui_final\\roommanagementform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B753D6A1-D6B0-4B8C-9595-91F2E851DA45}|DESIGN_UI_FINAL\\DESIGN_UI_FINAL.csproj|C:\\Users\\Y O G A\\source\\repos\\DESIGN_UI_FINAL(Before Crystal Report)\\DESIGN_UI_FINAL\\design_ui_final\\roommanagementform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{B753D6A1-D6B0-4B8C-9595-91F2E851DA45}|DESIGN_UI_FINAL\\DESIGN_UI_FINAL.csproj|solutionrelative:design_ui_final\\roommanagementform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     }
   ],
   "DocumentGroupContainers": [
@@ -82,20 +86,19 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "CRPaymentForm.Designer.cs",
-              "DocumentMoniker": "C:\\Users\\Y O G A\\source\\repos\\DESIGN_UI_FINAL(Before Crystal Report)\\DESIGN_UI_FINAL\\DESIGN_UI_FINAL\\CRPaymentForm.Designer.cs",
-              "RelativeDocumentMoniker": "DESIGN_UI_FINAL\\CRPaymentForm.Designer.cs",
-              "ToolTip": "C:\\Users\\Y O G A\\source\\repos\\DESIGN_UI_FINAL(Before Crystal Report)\\DESIGN_UI_FINAL\\DESIGN_UI_FINAL\\CRPaymentForm.Designer.cs",
-              "RelativeToolTip": "DESIGN_UI_FINAL\\CRPaymentForm.Designer.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 2,
+              "Title": "MonitorManagementForm.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\Y O G A\\source\\repos\\DESIGN_UI_FINAL(Before Crystal Report)\\DESIGN_UI_FINAL\\DESIGN_UI_FINAL\\MonitorManagementForm.cs",
+              "RelativeDocumentMoniker": "DESIGN_UI_FINAL\\MonitorManagementForm.cs",
+              "ToolTip": "C:\\Users\\Y O G A\\source\\repos\\DESIGN_UI_FINAL(Before Crystal Report)\\DESIGN_UI_FINAL\\DESIGN_UI_FINAL\\MonitorManagementForm.cs [Design]",
+              "RelativeToolTip": "DESIGN_UI_FINAL\\MonitorManagementForm.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-24T06:01:59Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-24T11:28:51.467Z",
+              "EditorCaption": " [Design]"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
               "Title": "PaymentForm.cs [Design]",
               "DocumentMoniker": "C:\\Users\\Y O G A\\source\\repos\\DESIGN_UI_FINAL(Before Crystal Report)\\DESIGN_UI_FINAL\\DESIGN_UI_FINAL\\PaymentForm.cs",
               "RelativeDocumentMoniker": "DESIGN_UI_FINAL\\PaymentForm.cs",
@@ -107,7 +110,67 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
+              "Title": "RoomManagementForm.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\Y O G A\\source\\repos\\DESIGN_UI_FINAL(Before Crystal Report)\\DESIGN_UI_FINAL\\DESIGN_UI_FINAL\\RoomManagementForm.cs",
+              "RelativeDocumentMoniker": "DESIGN_UI_FINAL\\RoomManagementForm.cs",
+              "ToolTip": "C:\\Users\\Y O G A\\source\\repos\\DESIGN_UI_FINAL(Before Crystal Report)\\DESIGN_UI_FINAL\\DESIGN_UI_FINAL\\RoomManagementForm.cs [Design]",
+              "RelativeToolTip": "DESIGN_UI_FINAL\\RoomManagementForm.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-23T01:25:16.014Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "SettingForm.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\Y O G A\\source\\repos\\DESIGN_UI_FINAL(Before Crystal Report)\\DESIGN_UI_FINAL\\DESIGN_UI_FINAL\\SettingForm.cs",
+              "RelativeDocumentMoniker": "DESIGN_UI_FINAL\\SettingForm.cs",
+              "ToolTip": "C:\\Users\\Y O G A\\source\\repos\\DESIGN_UI_FINAL(Before Crystal Report)\\DESIGN_UI_FINAL\\DESIGN_UI_FINAL\\SettingForm.cs [Design]",
+              "RelativeToolTip": "DESIGN_UI_FINAL\\SettingForm.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-23T01:27:10.614Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "DashboardForm.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\Y O G A\\source\\repos\\DESIGN_UI_FINAL(Before Crystal Report)\\DESIGN_UI_FINAL\\DESIGN_UI_FINAL\\DashboardForm.cs",
+              "RelativeDocumentMoniker": "DESIGN_UI_FINAL\\DashboardForm.cs",
+              "ToolTip": "C:\\Users\\Y O G A\\source\\repos\\DESIGN_UI_FINAL(Before Crystal Report)\\DESIGN_UI_FINAL\\DESIGN_UI_FINAL\\DashboardForm.cs [Design]",
+              "RelativeToolTip": "DESIGN_UI_FINAL\\DashboardForm.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-23T01:30:53.458Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "CRsettingForm.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\Y O G A\\source\\repos\\DESIGN_UI_FINAL(Before Crystal Report)\\DESIGN_UI_FINAL\\DESIGN_UI_FINAL\\CRsettingForm.cs",
+              "RelativeDocumentMoniker": "DESIGN_UI_FINAL\\CRsettingForm.cs",
+              "ToolTip": "C:\\Users\\Y O G A\\source\\repos\\DESIGN_UI_FINAL(Before Crystal Report)\\DESIGN_UI_FINAL\\DESIGN_UI_FINAL\\CRsettingForm.cs [Design]",
+              "RelativeToolTip": "DESIGN_UI_FINAL\\CRsettingForm.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-23T18:21:39.434Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "KournerLoginApp.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\Y O G A\\source\\repos\\DESIGN_UI_FINAL(Before Crystal Report)\\DESIGN_UI_FINAL\\DESIGN_UI_FINAL\\KournerLoginApp.cs",
+              "RelativeDocumentMoniker": "DESIGN_UI_FINAL\\KournerLoginApp.cs",
+              "ToolTip": "C:\\Users\\Y O G A\\source\\repos\\DESIGN_UI_FINAL(Before Crystal Report)\\DESIGN_UI_FINAL\\DESIGN_UI_FINAL\\KournerLoginApp.cs [Design]",
+              "RelativeToolTip": "DESIGN_UI_FINAL\\KournerLoginApp.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-23T01:21:31.273Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
               "Title": "DashboardForm.cs",
               "DocumentMoniker": "C:\\Users\\Y O G A\\source\\repos\\DESIGN_UI_FINAL(Before Crystal Report)\\DESIGN_UI_FINAL\\DESIGN_UI_FINAL\\DashboardForm.cs",
               "RelativeDocumentMoniker": "DESIGN_UI_FINAL\\DashboardForm.cs",
@@ -120,30 +183,19 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "DashboardForm.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\Y O G A\\source\\repos\\DESIGN_UI_FINAL(Before Crystal Report)\\DESIGN_UI_FINAL\\DESIGN_UI_FINAL\\DashboardForm.cs",
-              "RelativeDocumentMoniker": "DESIGN_UI_FINAL\\DashboardForm.cs",
-              "ToolTip": "C:\\Users\\Y O G A\\source\\repos\\DESIGN_UI_FINAL(Before Crystal Report)\\DESIGN_UI_FINAL\\DESIGN_UI_FINAL\\DashboardForm.cs [Design]",
-              "RelativeToolTip": "DESIGN_UI_FINAL\\DashboardForm.cs [Design]",
+              "DocumentIndex": 8,
+              "Title": "CRPaymentForm.Designer.cs",
+              "DocumentMoniker": "C:\\Users\\Y O G A\\source\\repos\\DESIGN_UI_FINAL(Before Crystal Report)\\DESIGN_UI_FINAL\\DESIGN_UI_FINAL\\CRPaymentForm.Designer.cs",
+              "RelativeDocumentMoniker": "DESIGN_UI_FINAL\\CRPaymentForm.Designer.cs",
+              "ToolTip": "C:\\Users\\Y O G A\\source\\repos\\DESIGN_UI_FINAL(Before Crystal Report)\\DESIGN_UI_FINAL\\DESIGN_UI_FINAL\\CRPaymentForm.Designer.cs",
+              "RelativeToolTip": "DESIGN_UI_FINAL\\CRPaymentForm.Designer.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-23T01:30:53.458Z",
-              "EditorCaption": " [Design]"
+              "WhenOpened": "2024-10-24T06:01:59Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "SettingForm.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\Y O G A\\source\\repos\\DESIGN_UI_FINAL(Before Crystal Report)\\DESIGN_UI_FINAL\\DESIGN_UI_FINAL\\SettingForm.cs",
-              "RelativeDocumentMoniker": "DESIGN_UI_FINAL\\SettingForm.cs",
-              "ToolTip": "C:\\Users\\Y O G A\\source\\repos\\DESIGN_UI_FINAL(Before Crystal Report)\\DESIGN_UI_FINAL\\DESIGN_UI_FINAL\\SettingForm.cs [Design]",
-              "RelativeToolTip": "DESIGN_UI_FINAL\\SettingForm.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-23T01:27:10.614Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 9,
               "Title": "PaymentForm.cs",
               "DocumentMoniker": "C:\\Users\\Y O G A\\source\\repos\\DESIGN_UI_FINAL(Before Crystal Report)\\DESIGN_UI_FINAL\\DESIGN_UI_FINAL\\PaymentForm.cs",
               "RelativeDocumentMoniker": "DESIGN_UI_FINAL\\PaymentForm.cs",
@@ -156,7 +208,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 10,
               "Title": "CRPaymentForm.cs [Design]",
               "DocumentMoniker": "C:\\Users\\Y O G A\\source\\repos\\DESIGN_UI_FINAL(Before Crystal Report)\\DESIGN_UI_FINAL\\DESIGN_UI_FINAL\\CRPaymentForm.cs",
               "RelativeDocumentMoniker": "DESIGN_UI_FINAL\\CRPaymentForm.cs",
@@ -167,7 +219,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 11,
               "Title": "CPpayment.rpt",
               "DocumentMoniker": "C:\\Users\\Y O G A\\source\\repos\\DESIGN_UI_FINAL(Before Crystal Report)\\DESIGN_UI_FINAL\\DESIGN_UI_FINAL\\CPpayment.rpt",
               "RelativeDocumentMoniker": "DESIGN_UI_FINAL\\CPpayment.rpt",
@@ -178,7 +230,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 12,
               "Title": "SettingForm.cs",
               "DocumentMoniker": "C:\\Users\\Y O G A\\source\\repos\\DESIGN_UI_FINAL(Before Crystal Report)\\DESIGN_UI_FINAL\\DESIGN_UI_FINAL\\SettingForm.cs",
               "RelativeDocumentMoniker": "DESIGN_UI_FINAL\\SettingForm.cs",
@@ -186,22 +238,12 @@
               "RelativeToolTip": "DESIGN_UI_FINAL\\SettingForm.cs",
               "ViewState": "AgIAADABAAAAAAAAAAAAAEMBAAAjAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-23T01:27:50.917Z"
+              "WhenOpened": "2024-10-23T01:27:50.917Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "KournerLoginApp.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\Y O G A\\source\\repos\\DESIGN_UI_FINAL(Before Crystal Report)\\DESIGN_UI_FINAL\\DESIGN_UI_FINAL\\KournerLoginApp.cs",
-              "RelativeDocumentMoniker": "DESIGN_UI_FINAL\\KournerLoginApp.cs",
-              "ToolTip": "C:\\Users\\Y O G A\\source\\repos\\DESIGN_UI_FINAL(Before Crystal Report)\\DESIGN_UI_FINAL\\DESIGN_UI_FINAL\\KournerLoginApp.cs [Design]",
-              "RelativeToolTip": "DESIGN_UI_FINAL\\KournerLoginApp.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-23T01:21:31.273Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 13,
               "Title": "CRadmin.rpt",
               "DocumentMoniker": "C:\\Users\\Y O G A\\source\\repos\\DESIGN_UI_FINAL(Before Crystal Report)\\DESIGN_UI_FINAL\\DESIGN_UI_FINAL\\CRadmin.rpt",
               "RelativeDocumentMoniker": "DESIGN_UI_FINAL\\CRadmin.rpt",
@@ -212,18 +254,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "CRsettingForm.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\Y O G A\\source\\repos\\DESIGN_UI_FINAL(Before Crystal Report)\\DESIGN_UI_FINAL\\DESIGN_UI_FINAL\\CRsettingForm.cs",
-              "RelativeDocumentMoniker": "DESIGN_UI_FINAL\\CRsettingForm.cs",
-              "ToolTip": "C:\\Users\\Y O G A\\source\\repos\\DESIGN_UI_FINAL(Before Crystal Report)\\DESIGN_UI_FINAL\\DESIGN_UI_FINAL\\CRsettingForm.cs [Design]",
-              "RelativeToolTip": "DESIGN_UI_FINAL\\CRsettingForm.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-23T18:21:39.434Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 14,
               "Title": "SettingForm.Designer.cs",
               "DocumentMoniker": "C:\\Users\\Y O G A\\source\\repos\\DESIGN_UI_FINAL(Before Crystal Report)\\DESIGN_UI_FINAL\\DESIGN_UI_FINAL\\SettingForm.Designer.cs",
               "RelativeDocumentMoniker": "DESIGN_UI_FINAL\\SettingForm.Designer.cs",
@@ -231,11 +262,12 @@
               "RelativeToolTip": "DESIGN_UI_FINAL\\SettingForm.Designer.cs",
               "ViewState": "AgIAAEYBAAAAAAAAAAAYwFMBAAA9AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-23T17:34:50.723Z"
+              "WhenOpened": "2024-10-23T17:34:50.723Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 15,
               "Title": "RoomManagementForm.Designer.cs",
               "DocumentMoniker": "C:\\Users\\Y O G A\\source\\repos\\DESIGN_UI_FINAL(Before Crystal Report)\\DESIGN_UI_FINAL\\DESIGN_UI_FINAL\\RoomManagementForm.Designer.cs",
               "RelativeDocumentMoniker": "DESIGN_UI_FINAL\\RoomManagementForm.Designer.cs",
@@ -243,11 +275,12 @@
               "RelativeToolTip": "DESIGN_UI_FINAL\\RoomManagementForm.Designer.cs",
               "ViewState": "AgIAAGoBAAAAAAAAAAApwHwBAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-23T17:34:34.441Z"
+              "WhenOpened": "2024-10-23T17:34:34.441Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 16,
               "Title": "RoomManagementForm.cs",
               "DocumentMoniker": "C:\\Users\\Y O G A\\source\\repos\\DESIGN_UI_FINAL(Before Crystal Report)\\DESIGN_UI_FINAL\\DESIGN_UI_FINAL\\RoomManagementForm.cs",
               "RelativeDocumentMoniker": "DESIGN_UI_FINAL\\RoomManagementForm.cs",
@@ -255,18 +288,8 @@
               "RelativeToolTip": "DESIGN_UI_FINAL\\RoomManagementForm.cs",
               "ViewState": "AgIAAAkAAAAAAAAAAAAAACAAAABIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-23T01:25:37.208Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 15,
-              "Title": "RoomManagementForm.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\Y O G A\\source\\repos\\DESIGN_UI_FINAL(Before Crystal Report)\\DESIGN_UI_FINAL\\DESIGN_UI_FINAL\\RoomManagementForm.cs",
-              "RelativeDocumentMoniker": "DESIGN_UI_FINAL\\RoomManagementForm.cs",
-              "ToolTip": "C:\\Users\\Y O G A\\source\\repos\\DESIGN_UI_FINAL(Before Crystal Report)\\DESIGN_UI_FINAL\\DESIGN_UI_FINAL\\RoomManagementForm.cs [Design]",
-              "RelativeToolTip": "DESIGN_UI_FINAL\\RoomManagementForm.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-23T01:25:16.014Z"
+              "WhenOpened": "2024-10-23T01:25:37.208Z",
+              "EditorCaption": ""
             }
           ]
         }

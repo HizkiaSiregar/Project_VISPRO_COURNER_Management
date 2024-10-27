@@ -152,7 +152,7 @@
             this.logoutToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(633, 119);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1981, 64);
+            this.menuStrip1.Size = new System.Drawing.Size(1741, 64);
             this.menuStrip1.TabIndex = 13;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -167,7 +167,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(1208, 108);
             this.label1.TabIndex = 12;
-            this.label1.Text = "Kourner Admin Dashboard";
+            this.label1.Text = "Courner Admin Dashboard";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // panel1
