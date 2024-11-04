@@ -99,9 +99,9 @@
             this.paymentsToolStripMenuItem,
             this.settingsToolStripMenuItem,
             this.logoutToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(737, 109);
+            this.menuStrip1.Location = new System.Drawing.Point(588, 109);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1741, 64);
+            this.menuStrip1.Size = new System.Drawing.Size(1890, 68);
             this.menuStrip1.TabIndex = 7;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -109,7 +109,7 @@
             // 
             this.dashboardToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.dashboardToolStripMenuItem.Name = "dashboardToolStripMenuItem";
-            this.dashboardToolStripMenuItem.Size = new System.Drawing.Size(278, 60);
+            this.dashboardToolStripMenuItem.Size = new System.Drawing.Size(278, 64);
             this.dashboardToolStripMenuItem.Text = "Dashboard";
             this.dashboardToolStripMenuItem.Click += new System.EventHandler(this.dashboardToolStripMenuItem_Click_1);
             // 
@@ -117,7 +117,7 @@
             // 
             this.manageRoomsToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.manageRoomsToolStripMenuItem.Name = "manageRoomsToolStripMenuItem";
-            this.manageRoomsToolStripMenuItem.Size = new System.Drawing.Size(373, 60);
+            this.manageRoomsToolStripMenuItem.Size = new System.Drawing.Size(373, 64);
             this.manageRoomsToolStripMenuItem.Text = "Manage Rooms";
             this.manageRoomsToolStripMenuItem.Click += new System.EventHandler(this.manageRoomsToolStripMenuItem_Click_1);
             // 
@@ -125,15 +125,15 @@
             // 
             this.manageMonitorsToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.manageMonitorsToolStripMenuItem.Name = "manageMonitorsToolStripMenuItem";
-            this.manageMonitorsToolStripMenuItem.Size = new System.Drawing.Size(421, 60);
-            this.manageMonitorsToolStripMenuItem.Text = "Manage Monitors";
+            this.manageMonitorsToolStripMenuItem.Size = new System.Drawing.Size(324, 64);
+            this.manageMonitorsToolStripMenuItem.Text = "Manage Staff";
             this.manageMonitorsToolStripMenuItem.Click += new System.EventHandler(this.manageMonitorsToolStripMenuItem_Click_1);
             // 
             // paymentsToolStripMenuItem
             // 
             this.paymentsToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.paymentsToolStripMenuItem.Name = "paymentsToolStripMenuItem";
-            this.paymentsToolStripMenuItem.Size = new System.Drawing.Size(252, 60);
+            this.paymentsToolStripMenuItem.Size = new System.Drawing.Size(252, 64);
             this.paymentsToolStripMenuItem.Text = "Payments";
             this.paymentsToolStripMenuItem.Click += new System.EventHandler(this.paymentsToolStripMenuItem_Click_1);
             // 
@@ -141,7 +141,7 @@
             // 
             this.settingsToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
-            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(215, 60);
+            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(215, 64);
             this.settingsToolStripMenuItem.Text = "Settings";
             this.settingsToolStripMenuItem.Click += new System.EventHandler(this.settingsToolStripMenuItem_Click_1);
             // 
@@ -149,7 +149,7 @@
             // 
             this.logoutToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.logoutToolStripMenuItem.Name = "logoutToolStripMenuItem";
-            this.logoutToolStripMenuItem.Size = new System.Drawing.Size(194, 60);
+            this.logoutToolStripMenuItem.Size = new System.Drawing.Size(194, 64);
             this.logoutToolStripMenuItem.Text = "Logout";
             this.logoutToolStripMenuItem.Click += new System.EventHandler(this.logoutToolStripMenuItem_Click_1);
             // 
@@ -222,7 +222,7 @@
             this.lblFoto.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(141)))), ((int)(((byte)(138)))));
             this.lblFoto.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblFoto.ForeColor = System.Drawing.SystemColors.Control;
-            this.lblFoto.Location = new System.Drawing.Point(78, 884);
+            this.lblFoto.Location = new System.Drawing.Point(119, 885);
             this.lblFoto.Name = "lblFoto";
             this.lblFoto.Size = new System.Drawing.Size(134, 31);
             this.lblFoto.TabIndex = 32;
@@ -244,7 +244,7 @@
             this.pictureBox3.BackColor = System.Drawing.Color.White;
             this.pictureBox3.Location = new System.Drawing.Point(50, 870);
             this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(1949, 62);
+            this.pictureBox3.Size = new System.Drawing.Size(296, 62);
             this.pictureBox3.TabIndex = 30;
             this.pictureBox3.TabStop = false;
             this.pictureBox3.Click += new System.EventHandler(this.pictureBox3_Click);
@@ -406,7 +406,7 @@
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(3076, 50);
             this.label6.TabIndex = 22;
-            this.label6.Text = "© 2024 Kourner Kost. All rights reserved.\r\n";
+            this.label6.Text = "© 2024 Corner Kost. All rights reserved.\r\n";
             this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // panel1

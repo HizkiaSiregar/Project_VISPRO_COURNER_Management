@@ -43,6 +43,9 @@
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.label8 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.btnSearch = new System.Windows.Forms.Button();
+            this.btnDelete = new System.Windows.Forms.Button();
+            this.btnSave = new System.Windows.Forms.Button();
             this.comboBoxStatus = new System.Windows.Forms.ComboBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.comboBoxCapacity = new System.Windows.Forms.ComboBox();
@@ -52,8 +55,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.txtRoomID = new System.Windows.Forms.TextBox();
-            this.btnSave = new System.Windows.Forms.Button();
+            this.txtRoomNumber = new System.Windows.Forms.TextBox();
+            this.btnUpdate = new System.Windows.Forms.Button();
             this.label11 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.menuStrip1.SuspendLayout();
@@ -72,7 +75,7 @@
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(3076, 50);
             this.label3.TabIndex = 15;
-            this.label3.Text = "© 2024 Kourner Kost. All rights reserved.\r\n";
+            this.label3.Text = "© 2024 Corner Kost. All rights reserved.\r\n";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // pictureBox1
@@ -115,8 +118,8 @@
             // 
             this.manageMonitorsToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.manageMonitorsToolStripMenuItem.Name = "manageMonitorsToolStripMenuItem";
-            this.manageMonitorsToolStripMenuItem.Size = new System.Drawing.Size(421, 60);
-            this.manageMonitorsToolStripMenuItem.Text = "Manage Monitors";
+            this.manageMonitorsToolStripMenuItem.Size = new System.Drawing.Size(324, 60);
+            this.manageMonitorsToolStripMenuItem.Text = "Manage Staff";
             this.manageMonitorsToolStripMenuItem.Click += new System.EventHandler(this.manageMonitorsToolStripMenuItem_Click_1);
             // 
             // manageRoomsToolStripMenuItem
@@ -152,7 +155,7 @@
             this.logoutToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(633, 119);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1741, 64);
+            this.menuStrip1.Size = new System.Drawing.Size(1644, 64);
             this.menuStrip1.TabIndex = 13;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -207,6 +210,9 @@
             // 
             this.panel4.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(195)))), ((int)(((byte)(165)))));
+            this.panel4.Controls.Add(this.btnSearch);
+            this.panel4.Controls.Add(this.btnDelete);
+            this.panel4.Controls.Add(this.btnSave);
             this.panel4.Controls.Add(this.comboBoxStatus);
             this.panel4.Controls.Add(this.textBox1);
             this.panel4.Controls.Add(this.comboBoxCapacity);
@@ -216,13 +222,52 @@
             this.panel4.Controls.Add(this.label2);
             this.panel4.Controls.Add(this.label6);
             this.panel4.Controls.Add(this.label7);
-            this.panel4.Controls.Add(this.txtRoomID);
-            this.panel4.Controls.Add(this.btnSave);
+            this.panel4.Controls.Add(this.txtRoomNumber);
+            this.panel4.Controls.Add(this.btnUpdate);
             this.panel4.Controls.Add(this.label11);
             this.panel4.Location = new System.Drawing.Point(523, 739);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(2070, 866);
+            this.panel4.Size = new System.Drawing.Size(2070, 995);
             this.panel4.TabIndex = 25;
+            // 
+            // btnSearch
+            // 
+            this.btnSearch.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(141)))), ((int)(((byte)(138)))));
+            this.btnSearch.Font = new System.Drawing.Font("Georgia", 13.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSearch.Location = new System.Drawing.Point(1823, 87);
+            this.btnSearch.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(178, 93);
+            this.btnSearch.TabIndex = 34;
+            this.btnSearch.Text = "Search";
+            this.btnSearch.UseVisualStyleBackColor = false;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
+            // 
+            // btnDelete
+            // 
+            this.btnDelete.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(141)))), ((int)(((byte)(138)))));
+            this.btnDelete.Font = new System.Drawing.Font("Georgia", 13.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDelete.Location = new System.Drawing.Point(1026, 864);
+            this.btnDelete.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(979, 93);
+            this.btnDelete.TabIndex = 33;
+            this.btnDelete.Text = "Delete";
+            this.btnDelete.UseVisualStyleBackColor = false;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
+            // 
+            // btnSave
+            // 
+            this.btnSave.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(141)))), ((int)(((byte)(138)))));
+            this.btnSave.Font = new System.Drawing.Font("Georgia", 13.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSave.Location = new System.Drawing.Point(37, 864);
+            this.btnSave.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(981, 93);
+            this.btnSave.TabIndex = 32;
+            this.btnSave.Text = "Save";
+            this.btnSave.UseVisualStyleBackColor = false;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click_1);
             // 
             // comboBoxStatus
             // 
@@ -236,6 +281,7 @@
             this.comboBoxStatus.Name = "comboBoxStatus";
             this.comboBoxStatus.Size = new System.Drawing.Size(1962, 51);
             this.comboBoxStatus.TabIndex = 31;
+            this.comboBoxStatus.SelectedIndexChanged += new System.EventHandler(this.comboBoxStatus_SelectedIndexChanged);
             // 
             // textBox1
             // 
@@ -258,6 +304,7 @@
             this.comboBoxCapacity.Name = "comboBoxCapacity";
             this.comboBoxCapacity.Size = new System.Drawing.Size(1962, 51);
             this.comboBoxCapacity.TabIndex = 29;
+            this.comboBoxCapacity.SelectedIndexChanged += new System.EventHandler(this.comboBoxCapacity_SelectedIndexChanged);
             // 
             // comboBoxFloor
             // 
@@ -272,6 +319,7 @@
             this.comboBoxFloor.Name = "comboBoxFloor";
             this.comboBoxFloor.Size = new System.Drawing.Size(1962, 51);
             this.comboBoxFloor.TabIndex = 28;
+            this.comboBoxFloor.SelectedIndexChanged += new System.EventHandler(this.comboBoxFloor_SelectedIndexChanged);
             // 
             // label5
             // 
@@ -329,28 +377,28 @@
             this.label7.TabIndex = 19;
             this.label7.Text = "Room Number";
             // 
-            // txtRoomID
+            // txtRoomNumber
             // 
-            this.txtRoomID.Font = new System.Drawing.Font("Georgia", 13.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtRoomID.Location = new System.Drawing.Point(39, 109);
-            this.txtRoomID.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.txtRoomID.Name = "txtRoomID";
-            this.txtRoomID.Size = new System.Drawing.Size(1964, 50);
-            this.txtRoomID.TabIndex = 18;
-            this.txtRoomID.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
+            this.txtRoomNumber.Font = new System.Drawing.Font("Georgia", 13.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtRoomNumber.Location = new System.Drawing.Point(39, 109);
+            this.txtRoomNumber.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.txtRoomNumber.Name = "txtRoomNumber";
+            this.txtRoomNumber.Size = new System.Drawing.Size(1762, 50);
+            this.txtRoomNumber.TabIndex = 18;
+            this.txtRoomNumber.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
             // 
-            // btnSave
+            // btnUpdate
             // 
-            this.btnSave.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(141)))), ((int)(((byte)(138)))));
-            this.btnSave.Font = new System.Drawing.Font("Georgia", 13.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSave.Location = new System.Drawing.Point(37, 731);
-            this.btnSave.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(1968, 93);
-            this.btnSave.TabIndex = 17;
-            this.btnSave.Text = "Save";
-            this.btnSave.UseVisualStyleBackColor = false;
-            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            this.btnUpdate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(141)))), ((int)(((byte)(138)))));
+            this.btnUpdate.Font = new System.Drawing.Font("Georgia", 13.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUpdate.Location = new System.Drawing.Point(37, 731);
+            this.btnUpdate.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.btnUpdate.Name = "btnUpdate";
+            this.btnUpdate.Size = new System.Drawing.Size(1968, 93);
+            this.btnUpdate.TabIndex = 17;
+            this.btnUpdate.Text = "Update";
+            this.btnUpdate.UseVisualStyleBackColor = false;
+            this.btnUpdate.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // label11
             // 
@@ -361,7 +409,7 @@
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(2070, 54);
             this.label11.TabIndex = 11;
-            this.label11.Text = "Add New Room";
+            this.label11.Text = "Room Manager";
             this.label11.Click += new System.EventHandler(this.label11_Click);
             // 
             // RoomManagementForm
@@ -410,13 +458,16 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox txtRoomID;
-        private System.Windows.Forms.Button btnSave;
+        private System.Windows.Forms.TextBox txtRoomNumber;
+        private System.Windows.Forms.Button btnUpdate;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.ComboBox comboBoxStatus;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.ComboBox comboBoxCapacity;
         private System.Windows.Forms.ComboBox comboBoxFloor;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Button btnSave;
+        private System.Windows.Forms.Button btnDelete;
+        private System.Windows.Forms.Button btnSearch;
     }
 }

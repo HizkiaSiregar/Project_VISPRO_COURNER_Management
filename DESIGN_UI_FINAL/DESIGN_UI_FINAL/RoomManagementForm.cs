@@ -65,7 +65,7 @@ namespace DESIGN_UI_FINAL
                     MessageBox.Show("No data available.");
                 }
 
-                btnSave.Enabled = true;
+                btnUpdate.Enabled = true;
             }
             catch (Exception ex)
             {
@@ -106,49 +106,46 @@ namespace DESIGN_UI_FINAL
 
         private void btnSave_Click(object sender, EventArgs e)
         {
+            try
             {
-                try
+                if (!string.IsNullOrEmpty(txtRoomNumber.Text) && !string.IsNullOrEmpty(txtRoomNumber.Text))
                 {
-                    if (koneksi.State == System.Data.ConnectionState.Closed)
+                    query = string.Format(
+                        "UPDATE rooms SET room_number = '{0}', status = '{1}', capacity = '{2}', floor = '{3}' WHERE room_id = '{4}'",
+                        txtRoomNumber.Text,
+                        comboBoxStatus.SelectedItem.ToString(),
+                        comboBoxCapacity.SelectedItem.ToString(),
+                        comboBoxFloor.SelectedItem.ToString(),
+                        txtRoomNumber.Text
+                    );
+                    koneksi.Open();
+                    perintah = new MySqlCommand(query, koneksi);
+                    int res = perintah.ExecuteNonQuery();
+                    koneksi.Close();
+
+                    if (res == 1)
                     {
-                        koneksi.Open();
-                    }
-
-                    // Check if room_id exists
-                    string checkQuery = string.Format("SELECT COUNT(*) FROM rooms WHERE room_id = '{0}';", txtRoomID.Text);
-                    perintah = new MySqlCommand(checkQuery, koneksi);
-                    int count = Convert.ToInt32(perintah.ExecuteScalar());
-
-                    if (count == 0)
-                    {
-                        query = string.Format("INSERT INTO rooms (room_id, room_number, status, capacity, floor) VALUES ('{0}', '{0}', '{1}', '{2}', '{3}');", txtRoomID.Text, comboBoxStatus.SelectedItem.ToString(), comboBoxCapacity.SelectedItem.ToString(), comboBoxFloor.SelectedItem.ToString());
-                        perintah = new MySqlCommand(query, koneksi);
-                        int res = perintah.ExecuteNonQuery();
-                        koneksi.Close();
-
-                        if (res == 1)
-                        {
-                            MessageBox.Show("Insert Data Success ...");
-                            RoomManagementForm_Load(null, null);
-                        }
-                        else
-                        {
-                            MessageBox.Show("Failed to insert data...");
-                        }
+                        MessageBox.Show("Update Data Success ...");
+                        RoomManagementForm_Load(null, null);
                     }
                     else
                     {
-                        MessageBox.Show("The specified Room ID already exists.");
+                        MessageBox.Show("Failed to update data ...");
                     }
                 }
-                catch (Exception ex)
+                else
                 {
-                    MessageBox.Show(ex.ToString());
+                    MessageBox.Show("Incomplete Data!!");
                 }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
             }
         }
 
-            private void dataGridView1_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
+
+        private void dataGridView1_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
         {
 
         }
@@ -206,6 +203,152 @@ namespace DESIGN_UI_FINAL
 
             // Optionally hide the dashboard if needed
             this.Hide();
+        }
+
+        private void btnSave_Click_1(object sender, EventArgs e)
+        {
+            {
+                try
+                {
+                    if (koneksi.State == System.Data.ConnectionState.Closed)
+                    {
+                        koneksi.Open();
+                    }
+
+                    // Check if room_id exists
+                    string checkQuery = string.Format("SELECT COUNT(*) FROM rooms WHERE room_id = '{0}';", txtRoomNumber.Text);
+                    perintah = new MySqlCommand(checkQuery, koneksi);
+                    int count = Convert.ToInt32(perintah.ExecuteScalar());
+
+                    if (count == 0)
+                    {
+                        query = string.Format("INSERT INTO rooms (room_id, room_number, status, capacity, floor) VALUES ('{0}', '{0}', '{1}', '{2}', '{3}');", txtRoomNumber.Text, comboBoxStatus.SelectedItem.ToString(), comboBoxCapacity.SelectedItem.ToString(), comboBoxFloor.SelectedItem.ToString());
+                        perintah = new MySqlCommand(query, koneksi);
+                        int res = perintah.ExecuteNonQuery();
+                        koneksi.Close();
+
+                        if (res == 1)
+                        {
+                            MessageBox.Show("Insert Data Success ...");
+                            RoomManagementForm_Load(null, null);
+                        }
+                        else
+                        {
+                            MessageBox.Show("Failed to insert data...");
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("The specified Room ID already exists.");
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.ToString());
+                }
+            }
+        }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (!string.IsNullOrEmpty(txtRoomNumber.Text))
+                {
+                    string searchQuery = string.Format("SELECT * FROM rooms WHERE room_number = '{0}'", txtRoomNumber.Text);
+
+                    ds.Clear();
+                    koneksi.Open();
+                    perintah = new MySqlCommand(searchQuery, koneksi);
+                    adapter = new MySqlDataAdapter(perintah);
+                    perintah.ExecuteNonQuery();
+                    adapter.Fill(ds);
+                    koneksi.Close();
+
+                    if (ds.Tables[0].Rows.Count > 0)
+                    {
+                        foreach (DataRow row in ds.Tables[0].Rows)
+                        {
+                            txtRoomNumber.Text = row["room_id"].ToString();
+                            txtRoomNumber.Text = row["room_number"].ToString(); comboBoxStatus.SelectedItem = row["status"].ToString(); comboBoxCapacity.SelectedItem = row["capacity"].ToString(); comboBoxFloor.SelectedItem = row["floor"].ToString();
+                            // Add other fields here as needed
+                        }
+
+                        txtRoomNumber.Enabled = true;
+                        dataGridView1.DataSource = ds.Tables[0];
+                        btnUpdate.Enabled = true;
+                        btnDelete.Enabled = true;
+                        btnSearch.Enabled = true;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Room not found!");
+                        RoomManagementForm_Load(null, null);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Please enter a Room Number to search.");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+        }
+
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (!string.IsNullOrEmpty(txtRoomNumber.Text))
+                {
+                    if (MessageBox.Show("Are you sure you want to delete this room?", "Warning", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                    {
+                        query = string.Format("DELETE FROM rooms WHERE room_Number = '{0}'", txtRoomNumber.Text);
+                        ds.Clear();
+                        koneksi.Open();
+                        perintah = new MySqlCommand(query, koneksi);
+                        int res = perintah.ExecuteNonQuery();
+                        koneksi.Close();
+
+                        if (res == 1)
+                        {
+                            MessageBox.Show("Delete Data Success ...");
+                        }
+                        else
+                        {
+                            MessageBox.Show("Failed to delete data...");
+                        }
+
+                        RoomManagementForm_Load(null, null); // Reload the form data
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("The specified Room ID does not exist!");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+        }
+
+        private void comboBoxCapacity_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBoxFloor_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBoxStatus_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
 
         private void dashboardToolStripMenuItem_Click_1(object sender, EventArgs e)

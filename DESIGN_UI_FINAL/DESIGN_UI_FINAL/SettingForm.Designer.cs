@@ -90,7 +90,7 @@
             this.logoutToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(519, 119);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1741, 64);
+            this.menuStrip1.Size = new System.Drawing.Size(1644, 64);
             this.menuStrip1.TabIndex = 4;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -114,8 +114,8 @@
             // 
             this.manageMonitorsToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.manageMonitorsToolStripMenuItem.Name = "manageMonitorsToolStripMenuItem";
-            this.manageMonitorsToolStripMenuItem.Size = new System.Drawing.Size(421, 60);
-            this.manageMonitorsToolStripMenuItem.Text = "Manage Monitors";
+            this.manageMonitorsToolStripMenuItem.Size = new System.Drawing.Size(324, 60);
+            this.manageMonitorsToolStripMenuItem.Text = "Manage Staff";
             this.manageMonitorsToolStripMenuItem.Click += new System.EventHandler(this.manageMonitorsToolStripMenuItem_Click_1);
             // 
             // paymentsToolStripMenuItem
@@ -334,7 +334,7 @@
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(2754, 50);
             this.label3.TabIndex = 21;
-            this.label3.Text = "© 2024 Kourner Kost. All rights reserved.\r\n";
+            this.label3.Text = "© 2024 Corner Kost. All rights reserved.\r\n";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // SettingForm

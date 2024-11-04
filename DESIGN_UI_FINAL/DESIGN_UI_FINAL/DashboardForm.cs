@@ -42,7 +42,7 @@ namespace DESIGN_UI_FINAL
             try
             {
                 koneksi.Open();
-                query = string.Format("select * from announcement");
+                query = string.Format("SELECT announcement_id, action, description, created_at FROM announcement");
                 perintah = new MySqlCommand(query, koneksi);
                 adapter = new MySqlDataAdapter(perintah);
                 perintah.ExecuteNonQuery();
@@ -52,14 +52,12 @@ namespace DESIGN_UI_FINAL
                 dataGridView1.DataSource = ds.Tables[0];
                 dataGridView1.Columns[0].Width = 100;
                 dataGridView1.Columns[0].HeaderText = "No";
-                dataGridView1.Columns[1].Width = 150;
-                dataGridView1.Columns[1].HeaderText = "ID Admin";
-                dataGridView1.Columns[2].Width = 120;
-                dataGridView1.Columns[2].HeaderText = "Type of Announcment";
+                dataGridView1.Columns[1].Width = 200;
+                dataGridView1.Columns[1].HeaderText = "Note Title"; // Formerly Type of Announcement
+                dataGridView1.Columns[2].Width = 300;
+                dataGridView1.Columns[2].HeaderText = "Content"; // Formerly Description
                 dataGridView1.Columns[3].Width = 120;
-                dataGridView1.Columns[3].HeaderText = "Description";
-                dataGridView1.Columns[4].Width = 120;
-                dataGridView1.Columns[4].HeaderText = "Date";
+                dataGridView1.Columns[3].HeaderText = "Date";
 
                 btnSave.Enabled = true;
 
@@ -169,30 +167,7 @@ namespace DESIGN_UI_FINAL
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            try
-            {
-                query = string.Format("INSERT INTO announcement (action, description) VALUES ('{0}', '{1}');", txtAction.Text, txtDescription.Text);
-                koneksi.Open();
-                perintah = new MySqlCommand(query, koneksi);
-                adapter = new MySqlDataAdapter(perintah);
-                int res = perintah.ExecuteNonQuery();
-                koneksi.Close();
-
-                if (res == 1)
-                {
-                    MessageBox.Show("Insert Data Success ...");
-                    DashboardForm_Load(null, null);
-                }
-                else
-                {
-                    MessageBox.Show("Failed to insert data...");
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.ToString());
-            }
-
+      
         }
 
         private void label4_Click(object sender, EventArgs e)
@@ -204,6 +179,173 @@ namespace DESIGN_UI_FINAL
         {
 
         }
+
+        private void label2_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnSave_Click_1(object sender, EventArgs e)
+        {
+            try
+            {
+                // Insert a new note into the database
+                query = string.Format("INSERT INTO announcement (action, description) VALUES ('{0}', '{1}');", txtAction.Text, txtDescription.Text);
+                koneksi.Open();
+                perintah = new MySqlCommand(query, koneksi);
+                adapter = new MySqlDataAdapter(perintah);
+                int res = perintah.ExecuteNonQuery();
+                koneksi.Close();
+
+                if (res == 1)
+                {
+                    MessageBox.Show("Note added successfully!");
+                    DashboardForm_Load(null, null); // Refresh the notes list
+                }
+                else
+                {
+                    MessageBox.Show("Failed to add note.");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+        }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (!string.IsNullOrEmpty(txtID.Text))
+                {
+                    string searchQuery = string.Format("SELECT * FROM announcement WHERE announcement_id = '{0}'", txtID.Text);
+
+                    ds.Clear();
+                    koneksi.Open();
+                    perintah = new MySqlCommand(searchQuery, koneksi);
+                    adapter = new MySqlDataAdapter(perintah);
+                    adapter.Fill(ds);
+                    koneksi.Close();
+
+                    if (ds.Tables[0].Rows.Count > 0)
+                    {
+                        dataGridView1.DataSource = ds.Tables[0];
+                        dataGridView1.Columns[0].HeaderText = "No";
+                        dataGridView1.Columns[1].HeaderText = "ID";
+                        dataGridView1.Columns[2].HeaderText = "Note Title";
+                        dataGridView1.Columns[3].HeaderText = "Content";
+                        dataGridView1.Columns[4].HeaderText = "Date";
+
+                        foreach (DataRow row in ds.Tables[0].Rows)
+                        {
+                            txtID.Text = row["announcement_id"].ToString();
+                            txtAction.Text = row["action"].ToString();
+                            txtDescription.Text = row["description"].ToString();
+                            // Add other fields here as needed
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Note not found!");
+                        DashboardForm_Load(null, null);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Please enter an ID to search.");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+        }
+
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (!string.IsNullOrEmpty(txtID.Text) && !string.IsNullOrEmpty(txtAction.Text) && !string.IsNullOrEmpty(txtDescription.Text))
+                {
+                    if (koneksi.State == ConnectionState.Closed)
+                    {
+                        koneksi.Open();
+                    }
+
+                    query = string.Format(
+                        "UPDATE announcement SET action = '{0}', description = '{1}' WHERE announcement_id = '{2}'",
+                        txtAction.Text,
+                        txtDescription.Text,
+                        txtID.Text
+                    );
+                    perintah = new MySqlCommand(query, koneksi);
+                    int res = perintah.ExecuteNonQuery();
+
+                    if (koneksi.State == ConnectionState.Open)
+                    {
+                        koneksi.Close();
+                    }
+
+                    if (res == 1)
+                    {
+                        MessageBox.Show("Update Data Success ...");
+                        DashboardForm_Load(null, null); // Refresh the notes list
+                    }
+                    else
+                    {
+                        MessageBox.Show("Failed to update data ...");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Incomplete Data!!");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+        }
+
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (!string.IsNullOrEmpty(txtID.Text))
+                {
+                    if (MessageBox.Show("Are you sure you want to delete this note?", "Warning", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                    {
+                        query = string.Format("DELETE FROM announcement WHERE announcement_id = '{0}'", txtID.Text);
+                        ds.Clear();
+                        koneksi.Open();
+                        perintah = new MySqlCommand(query, koneksi);
+                        int res = perintah.ExecuteNonQuery();
+                        koneksi.Close();
+
+                        if (res == 1)
+                        {
+                            MessageBox.Show("Delete Data Success ...");
+                            DashboardForm_Load(null, null); // Refresh the notes list
+                        }
+                        else
+                        {
+                            MessageBox.Show("Failed to delete data...");
+                        }
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Please enter a valid ID to delete.");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+        }
+
 
         private void dataGridView1_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
         {

@@ -31,13 +31,16 @@ namespace DESIGN_UI_FINAL
         {
             try
             {
-                koneksi.Open();
-                query = "SELECT s.staff_id, s.staff_name, sr.room_id, sr.assigned_at, s.status FROM staff s JOIN staff_rooms sr ON s.staff_id = sr.staff_id";
+                if (koneksi.State == ConnectionState.Closed)
+                {
+                    koneksi.Open();
+                }
+
+                query = "SELECT staff_id, staff_name, status FROM staff";
                 perintah = new MySqlCommand(query, koneksi);
                 adapter = new MySqlDataAdapter(perintah);
                 ds.Clear();
                 adapter.Fill(ds);
-                koneksi.Close();
 
                 if (ds.Tables.Count > 0)
                 {
@@ -47,11 +50,7 @@ namespace DESIGN_UI_FINAL
                     dataGridView1.Columns[1].Width = 150;
                     dataGridView1.Columns[1].HeaderText = "Staff Name";
                     dataGridView1.Columns[2].Width = 120;
-                    dataGridView1.Columns[2].HeaderText = "Room ID";
-                    dataGridView1.Columns[3].Width = 120;
-                    dataGridView1.Columns[3].HeaderText = "Assigned At";
-                    dataGridView1.Columns[4].Width = 120;
-                    dataGridView1.Columns[4].HeaderText = "Status";
+                    dataGridView1.Columns[2].HeaderText = "Status";
                     btnSave.Enabled = true;
                 }
                 else
@@ -61,62 +60,69 @@ namespace DESIGN_UI_FINAL
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.ToString());
+                MessageBox.Show("Error loading data: " + ex.Message);
+            }
+            finally
+            {
+                koneksi.Close(); // Ensure the connection is closed after loading data
             }
         }
 
         private void btnSave_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrWhiteSpace(txtStaffName.Text) || comboBoxStatus.SelectedItem == null)
+            {
+                MessageBox.Show("Please enter a Staff Name and select a Status.");
+                return;
+            }
+
             try
             {
-                if (koneksi.State == System.Data.ConnectionState.Closed)
+                if (koneksi.State == ConnectionState.Closed)
                 {
                     koneksi.Open();
                 }
 
-                // Check if staff_id exists
-                string checkQuery = string.Format("SELECT COUNT(*) FROM staff WHERE staff_id = '{0}';", txtStaffName.Text);
+                // Check if staff_name already exists
+                string checkQuery = "SELECT COUNT(*) FROM staff WHERE staff_name = @staffName";
                 perintah = new MySqlCommand(checkQuery, koneksi);
+                perintah.Parameters.AddWithValue("@staffName", txtStaffName.Text); // Correct parameter here
                 int count = Convert.ToInt32(perintah.ExecuteScalar());
 
                 if (count == 0)
                 {
-                    query = string.Format("INSERT INTO staff (staff_name, status) VALUES ('{0}', '{1}');", txtStaffName.Text, comboBoxStatus.SelectedItem.ToString());
+                    // Insert new staff data
+                    query = "INSERT INTO staff (staff_name, status) VALUES (@staffName, @status)";
                     perintah = new MySqlCommand(query, koneksi);
+                    perintah.Parameters.AddWithValue("@staffName", txtStaffName.Text); // Correct parameter here
+                    perintah.Parameters.AddWithValue("@status", comboBoxStatus.SelectedItem.ToString());
                     int res = perintah.ExecuteNonQuery();
 
                     if (res == 1)
                     {
-                        query = string.Format("INSERT INTO staff_rooms (room_id) VALUES ('{0}');", txtRoomID.Text);
-                        perintah = new MySqlCommand(query, koneksi);
-                        res = perintah.ExecuteNonQuery();
-                        koneksi.Close();
-
-                        if (res == 1)
-                        {
-                            MessageBox.Show("Insert Data Success ...");
-                            MonitorManagementForm_Load(null, null);
-                        }
-                        else
-                        {
-                            MessageBox.Show("Failed to insert data...");
-                        }
+                        MessageBox.Show("Data inserted successfully.");
+                        MonitorManagementForm_Load(null, null); // Refresh data
                     }
                     else
                     {
-                        MessageBox.Show("Failed to insert data...");
+                        MessageBox.Show("Failed to insert staff data.");
                     }
                 }
                 else
                 {
-                    MessageBox.Show("The specified Staff ID already exists.");
+                    MessageBox.Show("The specified Staff Name already exists.");
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.ToString());
+                MessageBox.Show("Error saving data: " + ex.Message);
+            }
+            finally
+            {
+                koneksi.Close(); // Ensure the connection is closed after saving data
             }
         }
+
 
         private void comboBoxStatus_SelectedIndexChanged(object sender, EventArgs e)
         {
