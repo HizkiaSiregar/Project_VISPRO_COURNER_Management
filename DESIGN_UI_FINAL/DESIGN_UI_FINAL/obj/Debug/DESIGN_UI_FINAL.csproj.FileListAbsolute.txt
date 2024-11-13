@@ -64,3 +64,4 @@ C:\Users\Y O G A\source\repos\DESIGN_UI_FINAL(Before Crystal Report)\DESIGN_UI_F
 C:\Users\Y O G A\source\repos\DESIGN_UI_FINAL(Before Crystal Report)\DESIGN_UI_FINAL\DESIGN_UI_FINAL\bin\Debug\CrystalDecisions.Windows.Forms.dll
 C:\Users\Y O G A\source\repos\DESIGN_UI_FINAL(Before Crystal Report)\DESIGN_UI_FINAL\DESIGN_UI_FINAL\obj\Debug\DESIGN_UI_FINAL.CRsettingForm.resources
 C:\Users\Y O G A\source\repos\DESIGN_UI_FINAL(Before Crystal Report)\DESIGN_UI_FINAL\DESIGN_UI_FINAL\obj\Debug\DESIGN_UI_FINAL.CRPaymentForm.resources
+C:\Users\Y O G A\source\repos\DESIGN_UI_FINAL(Before Crystal Report)\DESIGN_UI_FINAL\DESIGN_UI_FINAL\obj\Debug\DESIGN_UI_FINAL.CPdashboardFormcs.resources

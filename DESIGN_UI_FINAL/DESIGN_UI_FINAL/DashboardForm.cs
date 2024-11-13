@@ -25,6 +25,7 @@ namespace DESIGN_UI_FINAL
             alamat = "server=localhost; database=corner_vispro; username=root; password=;";
             koneksi = new MySqlConnection(alamat);
             InitializeComponent();
+            LoadStatuses();
         }
 
         private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
@@ -37,30 +38,39 @@ namespace DESIGN_UI_FINAL
 
         }
 
+        private void LoadStatuses()
+        {
+            // Load status options for ComboBox
+            query = "SELECT status_id, status_name FROM note_status";
+            adapter = new MySqlDataAdapter(query, koneksi);
+            DataTable statusTable = new DataTable();
+            adapter.Fill(statusTable);
+            comboBoxNoteStatus.DataSource = statusTable;
+            comboBoxNoteStatus.DisplayMember = "status_name";
+            comboBoxNoteStatus.ValueMember = "status_id";
+        }
+
+
         private void DashboardForm_Load(object sender, EventArgs e)
         {
             try
             {
                 koneksi.Open();
-                query = string.Format("SELECT announcement_id, action, description, created_at FROM announcement");
+                query = "SELECT announcement.announcement_id, announcement.action, announcement.description, announcement.created_at, note_status.status_name " +
+                        "FROM announcement " +
+                        "LEFT JOIN note_status ON announcement.status_id = note_status.status_id";
                 perintah = new MySqlCommand(query, koneksi);
                 adapter = new MySqlDataAdapter(perintah);
-                perintah.ExecuteNonQuery();
                 ds.Clear();
                 adapter.Fill(ds);
                 koneksi.Close();
+
                 dataGridView1.DataSource = ds.Tables[0];
-                dataGridView1.Columns[0].Width = 100;
                 dataGridView1.Columns[0].HeaderText = "No";
-                dataGridView1.Columns[1].Width = 200;
-                dataGridView1.Columns[1].HeaderText = "Note Title"; // Formerly Type of Announcement
-                dataGridView1.Columns[2].Width = 300;
-                dataGridView1.Columns[2].HeaderText = "Content"; // Formerly Description
-                dataGridView1.Columns[3].Width = 120;
+                dataGridView1.Columns[1].HeaderText = "Note Title";
+                dataGridView1.Columns[2].HeaderText = "Content";
                 dataGridView1.Columns[3].HeaderText = "Date";
-
-                btnSave.Enabled = true;
-
+                dataGridView1.Columns[4].HeaderText = "Status";
             }
             catch (Exception ex)
             {
@@ -189,18 +199,17 @@ namespace DESIGN_UI_FINAL
         {
             try
             {
-                // Insert a new note into the database
-                query = string.Format("INSERT INTO announcement (action, description) VALUES ('{0}', '{1}');", txtAction.Text, txtDescription.Text);
+                string statusId = comboBoxNoteStatus.SelectedValue.ToString();
+                query = $"INSERT INTO announcement (action, description, status_id) VALUES ('{txtAction.Text}', '{txtDescription.Text}', {statusId})";
                 koneksi.Open();
                 perintah = new MySqlCommand(query, koneksi);
-                adapter = new MySqlDataAdapter(perintah);
                 int res = perintah.ExecuteNonQuery();
                 koneksi.Close();
 
                 if (res == 1)
                 {
                     MessageBox.Show("Note added successfully!");
-                    DashboardForm_Load(null, null); // Refresh the notes list
+                    DashboardForm_Load(null, null);
                 }
                 else
                 {
@@ -217,38 +226,41 @@ namespace DESIGN_UI_FINAL
         {
             try
             {
-                if (!string.IsNullOrEmpty(txtID.Text))
+                if (!string.IsNullOrEmpty(txtID.Text))  // txtID is where user inputs the ID
                 {
-                    string searchQuery = string.Format("SELECT * FROM announcement WHERE announcement_id = '{0}'", txtID.Text);
+                    // Create the search query for a specific announcement_id
+                    string searchQuery = $"SELECT announcement.announcement_id, announcement.action, announcement.description, announcement.created_at, note_status.status_name " +
+                                         $"FROM announcement " +
+                                         $"LEFT JOIN note_status ON announcement.status_id = note_status.status_id " +
+                                         $"WHERE announcement.announcement_id = '{txtID.Text}'";
 
-                    ds.Clear();
-                    koneksi.Open();
+                    ds.Clear(); // Clear previous data from DataSet
+                    koneksi.Open(); // Open connection
                     perintah = new MySqlCommand(searchQuery, koneksi);
                     adapter = new MySqlDataAdapter(perintah);
-                    adapter.Fill(ds);
+                    adapter.Fill(ds); // Fill dataset with search result
                     koneksi.Close();
 
                     if (ds.Tables[0].Rows.Count > 0)
                     {
+                        // Update DataGridView to display search results only, with specified headers
                         dataGridView1.DataSource = ds.Tables[0];
                         dataGridView1.Columns[0].HeaderText = "No";
-                        dataGridView1.Columns[1].HeaderText = "ID";
-                        dataGridView1.Columns[2].HeaderText = "Note Title";
-                        dataGridView1.Columns[3].HeaderText = "Content";
-                        dataGridView1.Columns[4].HeaderText = "Date";
+                        dataGridView1.Columns[1].HeaderText = "Note Title";
+                        dataGridView1.Columns[2].HeaderText = "Content";
+                        dataGridView1.Columns[3].HeaderText = "Date";
+                        dataGridView1.Columns[4].HeaderText = "Status";
 
-                        foreach (DataRow row in ds.Tables[0].Rows)
-                        {
-                            txtID.Text = row["announcement_id"].ToString();
-                            txtAction.Text = row["action"].ToString();
-                            txtDescription.Text = row["description"].ToString();
-                            // Add other fields here as needed
-                        }
+                        // Assuming you want to update textboxes with the first result row data
+                        DataRow row = ds.Tables[0].Rows[0]; // Take the first row in the result set
+
+                        // Ensure the textbox names match the ones in the designer
+                        txtAction.Text = row["action"].ToString();
+                        txtDescription.Text = row["description"].ToString();
                     }
                     else
                     {
                         MessageBox.Show("Note not found!");
-                        DashboardForm_Load(null, null);
                     }
                 }
                 else
@@ -258,48 +270,38 @@ namespace DESIGN_UI_FINAL
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.ToString());
+                MessageBox.Show("An error occurred: " + ex.Message);
             }
         }
+
+
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
             try
             {
-                if (!string.IsNullOrEmpty(txtID.Text) && !string.IsNullOrEmpty(txtAction.Text) && !string.IsNullOrEmpty(txtDescription.Text))
+                if (!string.IsNullOrEmpty(txtID.Text))
                 {
-                    if (koneksi.State == ConnectionState.Closed)
-                    {
-                        koneksi.Open();
-                    }
-
-                    query = string.Format(
-                        "UPDATE announcement SET action = '{0}', description = '{1}' WHERE announcement_id = '{2}'",
-                        txtAction.Text,
-                        txtDescription.Text,
-                        txtID.Text
-                    );
+                    string statusId = comboBoxNoteStatus.SelectedValue.ToString();
+                    query = $"UPDATE announcement SET action = '{txtAction.Text}', description = '{txtDescription.Text}', status_id = {statusId} WHERE announcement_id = '{txtID.Text}'";
+                    koneksi.Open();
                     perintah = new MySqlCommand(query, koneksi);
                     int res = perintah.ExecuteNonQuery();
-
-                    if (koneksi.State == ConnectionState.Open)
-                    {
-                        koneksi.Close();
-                    }
+                    koneksi.Close();
 
                     if (res == 1)
                     {
-                        MessageBox.Show("Update Data Success ...");
-                        DashboardForm_Load(null, null); // Refresh the notes list
+                        MessageBox.Show("Update Data Success");
+                        DashboardForm_Load(null, null);
                     }
                     else
                     {
-                        MessageBox.Show("Failed to update data ...");
+                        MessageBox.Show("Failed to update data");
                     }
                 }
                 else
                 {
-                    MessageBox.Show("Incomplete Data!!");
+                    MessageBox.Show("Incomplete Data");
                 }
             }
             catch (Exception ex)
@@ -307,7 +309,6 @@ namespace DESIGN_UI_FINAL
                 MessageBox.Show(ex.ToString());
             }
         }
-
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
@@ -346,6 +347,37 @@ namespace DESIGN_UI_FINAL
             }
         }
 
+        private void panel4_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void txtID_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label13_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtDescription_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBoxNoteStatus_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnPrint_Click(object sender, EventArgs e)
+        {
+            CPdashboardFormcs cPdashboardFormcs = new CPdashboardFormcs();
+            cPdashboardFormcs.Show();
+            this.Hide();
+        }
 
         private void dataGridView1_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
         {

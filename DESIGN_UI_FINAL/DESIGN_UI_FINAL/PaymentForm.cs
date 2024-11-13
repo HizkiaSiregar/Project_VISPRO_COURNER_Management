@@ -35,7 +35,7 @@ namespace DESIGN_UI_FINAL
             try
             {
                 koneksi.Open();
-                query = "SELECT mahasiswa_id, room_id, amount_due, due_date, status, created_at FROM payments";
+                query = "SELECT mahasiswa_name, room_id, amount_due, due_date, status, created_at FROM payments";
                 perintah = new MySqlCommand(query, koneksi);
                 adapter = new MySqlDataAdapter(perintah);
                 perintah.ExecuteNonQuery();
@@ -44,7 +44,7 @@ namespace DESIGN_UI_FINAL
                 koneksi.Close();
                 dataGridView1.DataSource = ds.Tables[0];
                 dataGridView1.Columns[0].Width = 100;
-                dataGridView1.Columns[0].HeaderText = "Student ID";
+                dataGridView1.Columns[0].HeaderText = "Name";
                 dataGridView1.Columns[1].Width = 100;
                 dataGridView1.Columns[1].HeaderText = "Room ID";
                 dataGridView1.Columns[2].Width = 150;
@@ -84,74 +84,73 @@ namespace DESIGN_UI_FINAL
         {
             try
             {
-                if (txtMahasiswaID.Text != "" && txtRoomID.Text != "" && txtAmountDue.Text != "" && comboBoxStatus.SelectedItem != null && comboBoxBankType.SelectedItem != null && pictureBox3.Image != null)
+                // Ensure all fields are filled and an image is selected
+                if (txtMahasiswaName.Text != "" && txtRoomID.Text != "" && txtAmountDue.Text != "" &&
+                    comboBoxStatus.SelectedItem != null && comboBoxBankType.SelectedItem != null && pictureBox3.Image != null)
                 {
                     if (koneksi.State == System.Data.ConnectionState.Closed)
                     {
                         koneksi.Open();
                     }
 
-                    // Check if mahasiswa_id exists
-                    string checkQuery = string.Format("SELECT COUNT(*) FROM mahasiswa WHERE mahasiswa_id = '{0}';", txtMahasiswaID.Text);
-                    perintah = new MySqlCommand(checkQuery, koneksi);
-                    int count = Convert.ToInt32(perintah.ExecuteScalar());
+                    // Trim the mahasiswa_name input to handle any leading/trailing spaces
+                    string mahasiswaName = txtMahasiswaName.Text.Trim();
 
-                    if (count > 0)
+                    // Proceed directly to insert the data without checking if the name exists
+                    decimal amountDue;
+                    if (Decimal.TryParse(txtAmountDue.Text, out amountDue))
                     {
-                        decimal amountDue;
-                        if (Decimal.TryParse(txtAmountDue.Text, out amountDue))
+                        // Folder where the images will be saved
+                        string folderPath = @"C:\Users\Y O G A\source\repos\DESIGN_UI_FINAL(Before Crystal Report)\DESIGN_UI_FINAL\Foto";
+
+                        // Create folder if it doesn't exist
+                        if (!Directory.Exists(folderPath))
                         {
-                            // Folder where the images will be saved
-                            string folderPath = @"C:\Users\Y O G A\source\repos\DESIGN_UI_FINAL(Before Crystal Report)\DESIGN_UI_FINAL\Foto";
+                            Directory.CreateDirectory(folderPath);
+                        }
 
-                            // Create folder if it doesn't exist
-                            if (!Directory.Exists(folderPath))
-                            {
-                                Directory.CreateDirectory(folderPath);
-                            }
+                        // Generate a unique filename for the image
+                        string fileName = Guid.NewGuid().ToString() + ".jpg";
+                        string filePath = Path.Combine(folderPath, fileName);
 
-                            // Generate a unique filename for the image
-                            string fileName = Guid.NewGuid().ToString() + ".jpg";
-                            string filePath = Path.Combine(folderPath, fileName);
+                        // Save the image to the folder
+                        pictureBox3.Image.Save(filePath);
 
-                            // Save the image to the folder
-                            pictureBox3.Image.Save(filePath);
+                        // Insert query with the image filename included
+                        query = string.Format("INSERT INTO payments (mahasiswa_name, room_id, amount_due, due_date, status, bank_type, foto) " +
+                                              "VALUES ('{0}', '{1}', '{2}', '{3}', '{4}', '{5}', '{6}');",
+                                              mahasiswaName, txtRoomID.Text, amountDue, dateTimePickerDueDate.Value.ToString("yyyy-MM-dd"),
+                                              comboBoxStatus.SelectedItem.ToString(), comboBoxBankType.SelectedItem.ToString(), fileName);
 
-                            // Insert query with the image filename included
-                            query = string.Format("INSERT INTO payments (mahasiswa_id, room_id, amount_due, due_date, status, bank_type, foto) VALUES ('{0}', '{1}', '{2}', '{3}', '{4}', '{5}', '{6}');", txtMahasiswaID.Text, txtRoomID.Text, amountDue, dateTimePickerDueDate.Value.ToString("yyyy-MM-dd"), comboBoxStatus.SelectedItem.ToString(), comboBoxBankType.SelectedItem.ToString(), fileName);
+                        perintah = new MySqlCommand(query, koneksi);
+                        int res = perintah.ExecuteNonQuery();
+                        koneksi.Close();
 
-                            perintah = new MySqlCommand(query, koneksi);
-                            int res = perintah.ExecuteNonQuery();
-                            koneksi.Close();
-
-                            if (res == 1)
-                            {
-                                MessageBox.Show("Insert Data Success ...");
-                                RoomForm_Load(null, null);
-                            }
-                            else
-                            {
-                                MessageBox.Show("Failed to insert data...");
-                            }
+                        // Check if the insertion was successful
+                        if (res == 1)
+                        {
+                            MessageBox.Show("Data inserted successfully!");
+                            RoomForm_Load(null, null); // Reload the form data (refresh the DataGridView)
                         }
                         else
                         {
-                            MessageBox.Show("Invalid amount due value.");
+                            MessageBox.Show("Failed to insert data. Please try again.");
                         }
                     }
                     else
                     {
-                        MessageBox.Show("The specified Mahasiswa ID does not exist.");
+                        MessageBox.Show("Invalid amount due value. Please enter a valid number.");
                     }
                 }
                 else
                 {
-                    MessageBox.Show("All fields must be filled and an image must be selected.");
+                    MessageBox.Show("All fields must be filled and an image must be selected. Please ensure all fields are completed.");
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.ToString());
+                // Handle unexpected errors
+                MessageBox.Show("An error occurred: " + ex.Message);
             }
         }
 
@@ -243,6 +242,16 @@ namespace DESIGN_UI_FINAL
         {
             CRPaymentForm cRPaymentForm = new CRPaymentForm();
             cRPaymentForm.ShowDialog();
+        }
+
+        private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
         }
 
         private void dashboardToolStripMenuItem_Click_1(object sender, EventArgs e)

@@ -26,8 +26,6 @@ namespace DESIGN_UI_FINAL
             alamat = "server=localhost; database=corner_vispro; username=root; password=;";
             koneksi = new MySqlConnection(alamat);
             InitializeComponent();
-
-            this.AutoScroll = true;
         }
 
         private void RoomManagementForm_Load(object sender, EventArgs e)
@@ -35,7 +33,7 @@ namespace DESIGN_UI_FINAL
             try
             {
                 koneksi.Open();
-                query = "SELECT room_id, room_number, room_type, status, capacity, floor, created_at FROM rooms";
+                query = "SELECT room_id, room_number, room_type, status, capacity, floor, phone_number, created_at FROM rooms";
                 perintah = new MySqlCommand(query, koneksi);
                 adapter = new MySqlDataAdapter(perintah);
                 ds.Clear();
@@ -58,7 +56,9 @@ namespace DESIGN_UI_FINAL
                     dataGridView1.Columns[5].Width = 120;
                     dataGridView1.Columns[5].HeaderText = "Floor";
                     dataGridView1.Columns[6].Width = 120;
-                    dataGridView1.Columns[6].HeaderText = "Created At";
+                    dataGridView1.Columns[6].HeaderText = "Phone Number";
+                    dataGridView1.Columns[7].Width = 150;
+                    dataGridView1.Columns[7].HeaderText = "Created at";
                 }
                 else
                 {
@@ -72,6 +72,8 @@ namespace DESIGN_UI_FINAL
                 MessageBox.Show(ex.ToString());
             }
         }
+
+
 
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -111,13 +113,15 @@ namespace DESIGN_UI_FINAL
                 if (!string.IsNullOrEmpty(txtRoomNumber.Text) && !string.IsNullOrEmpty(txtRoomNumber.Text))
                 {
                     query = string.Format(
-                        "UPDATE rooms SET room_number = '{0}', status = '{1}', capacity = '{2}', floor = '{3}' WHERE room_id = '{4}'",
-                        txtRoomNumber.Text,
-                        comboBoxStatus.SelectedItem.ToString(),
-                        comboBoxCapacity.SelectedItem.ToString(),
-                        comboBoxFloor.SelectedItem.ToString(),
-                        txtRoomNumber.Text
+                       "UPDATE rooms SET room_number = '{0}', status = '{1}', capacity = '{2}', floor = '{3}', phone_number = '{4}' WHERE room_id = '{5}'",
+                       txtRoomNumber.Text,
+                       comboBoxStatus.SelectedItem.ToString(),
+                       comboBoxCapacity.SelectedItem.ToString(),
+                       comboBoxFloor.SelectedItem.ToString(),
+                       txtPhoneNumber.Text,  // Adding phone number
+                       txtRoomNumber.Text
                     );
+
                     koneksi.Open();
                     perintah = new MySqlCommand(query, koneksi);
                     int res = perintah.ExecuteNonQuery();
@@ -222,7 +226,15 @@ namespace DESIGN_UI_FINAL
 
                     if (count == 0)
                     {
-                        query = string.Format("INSERT INTO rooms (room_id, room_number, status, capacity, floor) VALUES ('{0}', '{0}', '{1}', '{2}', '{3}');", txtRoomNumber.Text, comboBoxStatus.SelectedItem.ToString(), comboBoxCapacity.SelectedItem.ToString(), comboBoxFloor.SelectedItem.ToString());
+                        query = string.Format(
+                            "INSERT INTO rooms (room_id, room_number, status, capacity, floor, phone_number) VALUES ('{0}', '{1}', '{2}', '{3}', '{4}', '{5}')",
+                            txtRoomNumber.Text,
+                            txtRoomNumber.Text,
+                            comboBoxStatus.SelectedItem.ToString(),
+                            comboBoxCapacity.SelectedItem.ToString(),
+                            comboBoxFloor.SelectedItem.ToString(),
+                            txtPhoneNumber.Text  // Adding phone number
+                        );
                         perintah = new MySqlCommand(query, koneksi);
                         int res = perintah.ExecuteNonQuery();
                         koneksi.Close();
@@ -271,6 +283,7 @@ namespace DESIGN_UI_FINAL
                         {
                             txtRoomNumber.Text = row["room_id"].ToString();
                             txtRoomNumber.Text = row["room_number"].ToString(); comboBoxStatus.SelectedItem = row["status"].ToString(); comboBoxCapacity.SelectedItem = row["capacity"].ToString(); comboBoxFloor.SelectedItem = row["floor"].ToString();
+                            txtPhoneNumber.Text = row["phone_number"].ToString();
                             // Add other fields here as needed
                         }
 
@@ -347,6 +360,11 @@ namespace DESIGN_UI_FINAL
         }
 
         private void comboBoxStatus_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtPhoneNumber_TextChanged(object sender, EventArgs e)
         {
 
         }

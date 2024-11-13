@@ -27,36 +27,33 @@ namespace DESIGN_UI_FINAL
             InitializeComponent();
         }
 
-        private void MonitorManagementForm_Load(object sender, EventArgs e)
+        private void LoadData()
         {
             try
             {
                 if (koneksi.State == ConnectionState.Closed)
-                {
                     koneksi.Open();
-                }
 
                 query = "SELECT staff_id, staff_name, status FROM staff";
                 perintah = new MySqlCommand(query, koneksi);
                 adapter = new MySqlDataAdapter(perintah);
+
                 ds.Clear();
                 adapter.Fill(ds);
 
-                if (ds.Tables.Count > 0)
+                dataGridView1.DataSource = ds.Tables[0];
+                dataGridView1.Columns[0].HeaderText = "Staff ID";
+                dataGridView1.Columns[1].HeaderText = "Staff Name";
+                dataGridView1.Columns[2].HeaderText = "Status";
+
+                // Ensure comboBoxStatus has options for "Active" and "Unactive"
+                if (comboBoxStatus.Items.Count == 0)
                 {
-                    dataGridView1.DataSource = ds.Tables[0];
-                    dataGridView1.Columns[0].Width = 100;
-                    dataGridView1.Columns[0].HeaderText = "Staff ID";
-                    dataGridView1.Columns[1].Width = 150;
-                    dataGridView1.Columns[1].HeaderText = "Staff Name";
-                    dataGridView1.Columns[2].Width = 120;
-                    dataGridView1.Columns[2].HeaderText = "Status";
-                    btnSave.Enabled = true;
+                    comboBoxStatus.Items.Add("Active");
+                    comboBoxStatus.Items.Add("Inactive");
                 }
-                else
-                {
-                    MessageBox.Show("No data available.");
-                }
+
+                btnSave.Enabled = true;
             }
             catch (Exception ex)
             {
@@ -64,8 +61,13 @@ namespace DESIGN_UI_FINAL
             }
             finally
             {
-                koneksi.Close(); // Ensure the connection is closed after loading data
+                koneksi.Close();
             }
+        }
+
+        private void MonitorManagementForm_Load(object sender, EventArgs e)
+        {
+            LoadData();
         }
 
         private void btnSave_Click(object sender, EventArgs e)
@@ -123,14 +125,20 @@ namespace DESIGN_UI_FINAL
             }
         }
 
-
         private void comboBoxStatus_SelectedIndexChanged(object sender, EventArgs e)
         {
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            if (e.RowIndex >= 0 && e.RowIndex < dataGridView1.Rows.Count)
+            {
+                txtStaffName.Text = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
+                string status = dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString();
+                comboBoxStatus.SelectedItem = status; // Selects Active or Unactive in comboBox
+            }
         }
+
 
         private void logoutToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -185,6 +193,147 @@ namespace DESIGN_UI_FINAL
             // Show the RoomForm
             RoomForm.ShowDialog();
             this.Hide();
+        }
+
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtStaffName.Text) || comboBoxStatus.SelectedItem == null)
+            {
+                MessageBox.Show("Please enter a Staff Name and select a Status.");
+                return;
+            }
+
+            if (dataGridView1.CurrentRow == null || dataGridView1.CurrentRow.Index < 0)
+            {
+                MessageBox.Show("Please select a staff member to update.");
+                return;
+            }
+
+            string staffId = dataGridView1.CurrentRow.Cells[0].Value.ToString();
+
+            try
+            {
+                if (koneksi.State == ConnectionState.Closed)
+                    koneksi.Open();
+
+                query = "UPDATE staff SET staff_name = @staffName, status = @status WHERE staff_id = @staffId";
+                perintah = new MySqlCommand(query, koneksi);
+                perintah.Parameters.AddWithValue("@staffName", txtStaffName.Text);
+                perintah.Parameters.AddWithValue("@status", comboBoxStatus.SelectedItem.ToString());
+                perintah.Parameters.AddWithValue("@staffId", staffId);
+
+                if (perintah.ExecuteNonQuery() == 1)
+                {
+                    MessageBox.Show("Data updated successfully.");
+                    LoadData(); // Refresh the DataGridView
+                }
+                else
+                {
+                    MessageBox.Show("Failed to update staff data.");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error updating data: " + ex.Message);
+            }
+            finally
+            {
+                koneksi.Close();
+            }
+        }
+
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (dataGridView1.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Please select a staff member to delete.");
+                return;
+            }
+
+            string staffId = dataGridView1.SelectedRows[0].Cells[0].Value.ToString();
+            DialogResult result = MessageBox.Show("Are you sure you want to delete this staff member?", "Confirm Deletion", MessageBoxButtons.YesNo);
+
+            if (result == DialogResult.No)
+                return;
+
+            try
+            {
+                if (koneksi.State == ConnectionState.Closed)
+                    koneksi.Open();
+
+                query = "DELETE FROM staff WHERE staff_id = @staffId";
+                perintah = new MySqlCommand(query, koneksi);
+                perintah.Parameters.AddWithValue("@staffId", staffId);
+
+                if (perintah.ExecuteNonQuery() == 1)
+                {
+                    MessageBox.Show("Staff member deleted successfully.");
+                    LoadData();
+                }
+                else
+                {
+                    MessageBox.Show("Failed to delete staff member.");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error deleting data: " + ex.Message);
+            }
+            finally
+            {
+                koneksi.Close();
+            }
+        }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            string searchTerm = txtStaffID.Text.Trim();
+            if (string.IsNullOrEmpty(searchTerm))
+            {
+                MessageBox.Show("Please enter a Staff ID or Staff Name to search.");
+                return;
+            }
+
+            try
+            {
+                if (koneksi.State == ConnectionState.Closed)
+                    koneksi.Open();
+
+                query = "SELECT staff_id, staff_name, status FROM staff WHERE staff_id LIKE @searchTerm OR staff_name LIKE @searchTerm";
+                perintah = new MySqlCommand(query, koneksi);
+                perintah.Parameters.AddWithValue("@searchTerm", "%" + searchTerm + "%");
+                adapter = new MySqlDataAdapter(perintah);
+
+                ds.Clear();
+                adapter.Fill(ds);
+
+                if (ds.Tables[0].Rows.Count > 0)
+                {
+                    dataGridView1.DataSource = ds.Tables[0];
+                    txtStaffName.Text = ds.Tables[0].Rows[0]["staff_name"].ToString();
+                    comboBoxStatus.SelectedItem = ds.Tables[0].Rows[0]["status"].ToString();
+                    MessageBox.Show("Search results updated.");
+                }
+                else
+                {
+                    MessageBox.Show("No matching records found.");
+                    dataGridView1.DataSource = null;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error searching data: " + ex.Message);
+            }
+            finally
+            {
+                koneksi.Close();
+            }
+        }
+
+        private void txtStaffID_TextChanged(object sender, EventArgs e)
+        {
+
         }
 
         private void dashboardToolStripMenuItem_Click(object sender, EventArgs e)

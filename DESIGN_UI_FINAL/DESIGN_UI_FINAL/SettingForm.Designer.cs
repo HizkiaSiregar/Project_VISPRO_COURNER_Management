@@ -70,7 +70,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(1208, 108);
             this.label1.TabIndex = 3;
-            this.label1.Text = "Courner Admin Dashboard";
+            this.label1.Text = "Corner Admin Dashboard";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // menuStrip1
@@ -88,7 +88,7 @@
             this.paymentsToolStripMenuItem,
             this.settingsToolStripMenuItem,
             this.logoutToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(519, 119);
+            this.menuStrip1.Location = new System.Drawing.Point(587, 117);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(1644, 64);
             this.menuStrip1.TabIndex = 4;
@@ -236,6 +236,7 @@
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(45, 157);
             this.dataGridView1.Name = "dataGridView1";

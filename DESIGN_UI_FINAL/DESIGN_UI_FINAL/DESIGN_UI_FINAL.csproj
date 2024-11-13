@@ -55,6 +55,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CPdashboardFormcs.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CPdashboardFormcs.Designer.cs">
+      <DependentUpon>CPdashboardFormcs.cs</DependentUpon>
+    </Compile>
     <Compile Include="CPpayment.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -65,6 +71,12 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>CRadmin.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CRDashboard.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CRDashboard.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="CRPaymentForm.cs">
@@ -117,6 +129,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="CPdashboardFormcs.resx">
+      <DependentUpon>CPdashboardFormcs.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CPpayment.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>CPpayment.cs</LastGenOutput>
@@ -124,6 +139,10 @@
     <EmbeddedResource Include="CRadmin.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>CRadmin.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CRDashboard.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CRDashboard.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="CRPaymentForm.resx">
       <DependentUpon>CRPaymentForm.cs</DependentUpon>

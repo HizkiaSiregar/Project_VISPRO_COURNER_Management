@@ -47,7 +47,7 @@
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
             this.comboBoxStatus = new System.Windows.Forms.ComboBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtPhoneNumber = new System.Windows.Forms.TextBox();
             this.comboBoxCapacity = new System.Windows.Forms.ComboBox();
             this.comboBoxFloor = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -67,8 +67,9 @@
             // 
             // label3
             // 
+            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.label3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(141)))), ((int)(((byte)(138)))));
-            this.label3.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.label3.Font = new System.Drawing.Font("Georgia", 12F);
             this.label3.ForeColor = System.Drawing.Color.White;
             this.label3.Location = new System.Drawing.Point(0, 1829);
@@ -155,7 +156,7 @@
             this.logoutToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(633, 119);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1644, 64);
+            this.menuStrip1.Size = new System.Drawing.Size(1650, 68);
             this.menuStrip1.TabIndex = 13;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -170,7 +171,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(1208, 108);
             this.label1.TabIndex = 12;
-            this.label1.Text = "Courner Admin Dashboard";
+            this.label1.Text = "Corner Admin Dashboard";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // panel1
@@ -186,6 +187,7 @@
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(52, 52);
             this.dataGridView1.Name = "dataGridView1";
@@ -209,12 +211,13 @@
             // panel4
             // 
             this.panel4.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.panel4.AutoScroll = true;
             this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(195)))), ((int)(((byte)(165)))));
             this.panel4.Controls.Add(this.btnSearch);
             this.panel4.Controls.Add(this.btnDelete);
             this.panel4.Controls.Add(this.btnSave);
             this.panel4.Controls.Add(this.comboBoxStatus);
-            this.panel4.Controls.Add(this.textBox1);
+            this.panel4.Controls.Add(this.txtPhoneNumber);
             this.panel4.Controls.Add(this.comboBoxCapacity);
             this.panel4.Controls.Add(this.comboBoxFloor);
             this.panel4.Controls.Add(this.label5);
@@ -283,14 +286,15 @@
             this.comboBoxStatus.TabIndex = 31;
             this.comboBoxStatus.SelectedIndexChanged += new System.EventHandler(this.comboBoxStatus_SelectedIndexChanged);
             // 
-            // textBox1
+            // txtPhoneNumber
             // 
-            this.textBox1.Font = new System.Drawing.Font("Georgia", 13.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(41, 643);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(1964, 50);
-            this.textBox1.TabIndex = 30;
+            this.txtPhoneNumber.Font = new System.Drawing.Font("Georgia", 13.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPhoneNumber.Location = new System.Drawing.Point(41, 643);
+            this.txtPhoneNumber.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.txtPhoneNumber.Name = "txtPhoneNumber";
+            this.txtPhoneNumber.Size = new System.Drawing.Size(1964, 50);
+            this.txtPhoneNumber.TabIndex = 30;
+            this.txtPhoneNumber.TextChanged += new System.EventHandler(this.txtPhoneNumber_TextChanged);
             // 
             // comboBoxCapacity
             // 
@@ -416,6 +420,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(3076, 1879);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel1);
@@ -462,7 +467,7 @@
         private System.Windows.Forms.Button btnUpdate;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.ComboBox comboBoxStatus;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtPhoneNumber;
         private System.Windows.Forms.ComboBox comboBoxCapacity;
         private System.Windows.Forms.ComboBox comboBoxFloor;
         private System.Windows.Forms.DataGridView dataGridView1;

@@ -55,7 +55,7 @@
             this.txtRoomID = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.txtMahasiswaID = new System.Windows.Forms.TextBox();
+            this.txtMahasiswaName = new System.Windows.Forms.TextBox();
             this.btnSave = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -76,17 +76,17 @@
             this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(141)))), ((int)(((byte)(138)))));
             this.label1.Font = new System.Drawing.Font("Georgia", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(1023, -1);
+            this.label1.Location = new System.Drawing.Point(1022, 3);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(1208, 108);
             this.label1.TabIndex = 6;
-            this.label1.Text = "Courner Admin Dashboard";
+            this.label1.Text = "Corner Admin Dashboard";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // menuStrip1
             // 
-            this.menuStrip1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.menuStrip1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.menuStrip1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(141)))), ((int)(((byte)(138)))));
             this.menuStrip1.Dock = System.Windows.Forms.DockStyle.None;
             this.menuStrip1.Font = new System.Drawing.Font("Georgia", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -99,17 +99,18 @@
             this.paymentsToolStripMenuItem,
             this.settingsToolStripMenuItem,
             this.logoutToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(588, 109);
+            this.menuStrip1.Location = new System.Drawing.Point(728, 111);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1890, 68);
+            this.menuStrip1.Size = new System.Drawing.Size(1644, 64);
             this.menuStrip1.TabIndex = 7;
             this.menuStrip1.Text = "menuStrip1";
+            this.menuStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menuStrip1_ItemClicked);
             // 
             // dashboardToolStripMenuItem
             // 
             this.dashboardToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.dashboardToolStripMenuItem.Name = "dashboardToolStripMenuItem";
-            this.dashboardToolStripMenuItem.Size = new System.Drawing.Size(278, 64);
+            this.dashboardToolStripMenuItem.Size = new System.Drawing.Size(278, 60);
             this.dashboardToolStripMenuItem.Text = "Dashboard";
             this.dashboardToolStripMenuItem.Click += new System.EventHandler(this.dashboardToolStripMenuItem_Click_1);
             // 
@@ -117,7 +118,7 @@
             // 
             this.manageRoomsToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.manageRoomsToolStripMenuItem.Name = "manageRoomsToolStripMenuItem";
-            this.manageRoomsToolStripMenuItem.Size = new System.Drawing.Size(373, 64);
+            this.manageRoomsToolStripMenuItem.Size = new System.Drawing.Size(373, 60);
             this.manageRoomsToolStripMenuItem.Text = "Manage Rooms";
             this.manageRoomsToolStripMenuItem.Click += new System.EventHandler(this.manageRoomsToolStripMenuItem_Click_1);
             // 
@@ -125,7 +126,7 @@
             // 
             this.manageMonitorsToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.manageMonitorsToolStripMenuItem.Name = "manageMonitorsToolStripMenuItem";
-            this.manageMonitorsToolStripMenuItem.Size = new System.Drawing.Size(324, 64);
+            this.manageMonitorsToolStripMenuItem.Size = new System.Drawing.Size(324, 60);
             this.manageMonitorsToolStripMenuItem.Text = "Manage Staff";
             this.manageMonitorsToolStripMenuItem.Click += new System.EventHandler(this.manageMonitorsToolStripMenuItem_Click_1);
             // 
@@ -133,7 +134,7 @@
             // 
             this.paymentsToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.paymentsToolStripMenuItem.Name = "paymentsToolStripMenuItem";
-            this.paymentsToolStripMenuItem.Size = new System.Drawing.Size(252, 64);
+            this.paymentsToolStripMenuItem.Size = new System.Drawing.Size(252, 60);
             this.paymentsToolStripMenuItem.Text = "Payments";
             this.paymentsToolStripMenuItem.Click += new System.EventHandler(this.paymentsToolStripMenuItem_Click_1);
             // 
@@ -141,7 +142,7 @@
             // 
             this.settingsToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
-            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(215, 64);
+            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(215, 60);
             this.settingsToolStripMenuItem.Text = "Settings";
             this.settingsToolStripMenuItem.Click += new System.EventHandler(this.settingsToolStripMenuItem_Click_1);
             // 
@@ -149,21 +150,22 @@
             // 
             this.logoutToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.logoutToolStripMenuItem.Name = "logoutToolStripMenuItem";
-            this.logoutToolStripMenuItem.Size = new System.Drawing.Size(194, 64);
+            this.logoutToolStripMenuItem.Size = new System.Drawing.Size(194, 60);
             this.logoutToolStripMenuItem.Text = "Logout";
             this.logoutToolStripMenuItem.Click += new System.EventHandler(this.logoutToolStripMenuItem_Click_1);
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(-975, -1);
+            this.pictureBox1.Location = new System.Drawing.Point(-527, 1);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(4846, 190);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 8;
             this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // label11
             // 
@@ -179,6 +181,7 @@
             // panel4
             // 
             this.panel4.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.panel4.AutoScroll = true;
             this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(195)))), ((int)(((byte)(165)))));
             this.panel4.Controls.Add(this.btnPrint);
             this.panel4.Controls.Add(this.lblFoto);
@@ -195,19 +198,19 @@
             this.panel4.Controls.Add(this.txtRoomID);
             this.panel4.Controls.Add(this.label2);
             this.panel4.Controls.Add(this.label7);
-            this.panel4.Controls.Add(this.txtMahasiswaID);
+            this.panel4.Controls.Add(this.txtMahasiswaName);
             this.panel4.Controls.Add(this.btnSave);
             this.panel4.Controls.Add(this.label11);
             this.panel4.Location = new System.Drawing.Point(542, 719);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(2070, 1080);
+            this.panel4.Size = new System.Drawing.Size(2070, 1004);
             this.panel4.TabIndex = 21;
             // 
             // btnPrint
             // 
             this.btnPrint.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(141)))), ((int)(((byte)(138)))));
             this.btnPrint.Font = new System.Drawing.Font("Georgia", 13.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPrint.Location = new System.Drawing.Point(1817, 957);
+            this.btnPrint.Location = new System.Drawing.Point(1817, 853);
             this.btnPrint.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btnPrint.Name = "btnPrint";
             this.btnPrint.Size = new System.Drawing.Size(186, 93);
@@ -220,11 +223,11 @@
             // 
             this.lblFoto.AutoSize = true;
             this.lblFoto.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(141)))), ((int)(((byte)(138)))));
-            this.lblFoto.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFoto.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblFoto.ForeColor = System.Drawing.SystemColors.Control;
-            this.lblFoto.Location = new System.Drawing.Point(119, 885);
+            this.lblFoto.Location = new System.Drawing.Point(1474, 422);
             this.lblFoto.Name = "lblFoto";
-            this.lblFoto.Size = new System.Drawing.Size(134, 31);
+            this.lblFoto.Size = new System.Drawing.Size(144, 33);
             this.lblFoto.TabIndex = 32;
             this.lblFoto.Text = "Insert File";
             // 
@@ -232,7 +235,7 @@
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Georgia", 13.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(41, 824);
+            this.label10.Location = new System.Drawing.Point(1092, 54);
             this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(305, 43);
@@ -242,9 +245,9 @@
             // pictureBox3
             // 
             this.pictureBox3.BackColor = System.Drawing.Color.White;
-            this.pictureBox3.Location = new System.Drawing.Point(50, 870);
+            this.pictureBox3.Location = new System.Drawing.Point(1101, 100);
             this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(296, 62);
+            this.pictureBox3.Size = new System.Drawing.Size(902, 707);
             this.pictureBox3.TabIndex = 30;
             this.pictureBox3.TabStop = false;
             this.pictureBox3.Click += new System.EventHandler(this.pictureBox3_Click);
@@ -259,7 +262,7 @@
             this.comboBoxStatus.Location = new System.Drawing.Point(39, 756);
             this.comboBoxStatus.Margin = new System.Windows.Forms.Padding(6);
             this.comboBoxStatus.Name = "comboBoxStatus";
-            this.comboBoxStatus.Size = new System.Drawing.Size(1962, 51);
+            this.comboBoxStatus.Size = new System.Drawing.Size(994, 51);
             this.comboBoxStatus.TabIndex = 29;
             // 
             // label9
@@ -285,7 +288,7 @@
             this.comboBoxBankType.Location = new System.Drawing.Point(37, 632);
             this.comboBoxBankType.Margin = new System.Windows.Forms.Padding(6);
             this.comboBoxBankType.Name = "comboBoxBankType";
-            this.comboBoxBankType.Size = new System.Drawing.Size(1962, 51);
+            this.comboBoxBankType.Size = new System.Drawing.Size(994, 51);
             this.comboBoxBankType.TabIndex = 27;
             this.comboBoxBankType.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
@@ -295,7 +298,7 @@
             this.dateTimePickerDueDate.Location = new System.Drawing.Point(39, 497);
             this.dateTimePickerDueDate.Margin = new System.Windows.Forms.Padding(6);
             this.dateTimePickerDueDate.Name = "dateTimePickerDueDate";
-            this.dateTimePickerDueDate.Size = new System.Drawing.Size(1964, 50);
+            this.dateTimePickerDueDate.Size = new System.Drawing.Size(996, 50);
             this.dateTimePickerDueDate.TabIndex = 26;
             // 
             // label5
@@ -326,7 +329,7 @@
             this.txtAmountDue.Location = new System.Drawing.Point(41, 367);
             this.txtAmountDue.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.txtAmountDue.Name = "txtAmountDue";
-            this.txtAmountDue.Size = new System.Drawing.Size(1964, 50);
+            this.txtAmountDue.Size = new System.Drawing.Size(996, 50);
             this.txtAmountDue.TabIndex = 23;
             this.txtAmountDue.TextChanged += new System.EventHandler(this.txtAmountDue_TextChanged);
             // 
@@ -347,7 +350,7 @@
             this.txtRoomID.Location = new System.Drawing.Point(39, 242);
             this.txtRoomID.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.txtRoomID.Name = "txtRoomID";
-            this.txtRoomID.Size = new System.Drawing.Size(1964, 50);
+            this.txtRoomID.Size = new System.Drawing.Size(996, 50);
             this.txtRoomID.TabIndex = 21;
             // 
             // label2
@@ -373,20 +376,20 @@
             this.label7.Text = "Name";
             this.label7.Click += new System.EventHandler(this.label7_Click);
             // 
-            // txtMahasiswaID
+            // txtMahasiswaName
             // 
-            this.txtMahasiswaID.Font = new System.Drawing.Font("Georgia", 13.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtMahasiswaID.Location = new System.Drawing.Point(39, 109);
-            this.txtMahasiswaID.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.txtMahasiswaID.Name = "txtMahasiswaID";
-            this.txtMahasiswaID.Size = new System.Drawing.Size(1964, 50);
-            this.txtMahasiswaID.TabIndex = 18;
+            this.txtMahasiswaName.Font = new System.Drawing.Font("Georgia", 13.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtMahasiswaName.Location = new System.Drawing.Point(39, 109);
+            this.txtMahasiswaName.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.txtMahasiswaName.Name = "txtMahasiswaName";
+            this.txtMahasiswaName.Size = new System.Drawing.Size(996, 50);
+            this.txtMahasiswaName.TabIndex = 18;
             // 
             // btnSave
             // 
             this.btnSave.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(141)))), ((int)(((byte)(138)))));
             this.btnSave.Font = new System.Drawing.Font("Georgia", 13.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSave.Location = new System.Drawing.Point(39, 957);
+            this.btnSave.Location = new System.Drawing.Point(39, 853);
             this.btnSave.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(1770, 93);
@@ -422,6 +425,7 @@
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(37, 57);
             this.dataGridView1.Name = "dataGridView1";
@@ -492,7 +496,7 @@
         private System.Windows.Forms.TextBox txtRoomID;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox txtMahasiswaID;
+        private System.Windows.Forms.TextBox txtMahasiswaName;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Panel panel1;
