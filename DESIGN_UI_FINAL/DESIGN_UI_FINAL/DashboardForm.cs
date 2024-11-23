@@ -375,7 +375,7 @@ namespace DESIGN_UI_FINAL
         private void btnPrint_Click(object sender, EventArgs e)
         {
             CPdashboardFormcs cPdashboardFormcs = new CPdashboardFormcs();
-            cPdashboardFormcs.Show();
+            cPdashboardFormcs.ShowDialog();
             this.Hide();
         }
 

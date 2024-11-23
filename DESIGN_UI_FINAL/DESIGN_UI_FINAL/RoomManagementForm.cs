@@ -21,6 +21,15 @@ namespace DESIGN_UI_FINAL
 
         private DataSet ds = new DataSet();
         private string alamat, query;
+
+        public delegate void RefreshRoomListHandler();
+        public event RefreshRoomListHandler OnRoomListUpdated;
+
+        private void NotifyRoomFormToRefresh()
+        {
+            OnRoomListUpdated?.Invoke(); // Notify listeners
+        }
+
         public RoomManagementForm()
         {
             alamat = "server=localhost; database=corner_vispro; username=root; password=;";
@@ -209,57 +218,61 @@ namespace DESIGN_UI_FINAL
             this.Hide();
         }
 
+
         private void btnSave_Click_1(object sender, EventArgs e)
         {
+            try
             {
-                try
+                if (koneksi.State == ConnectionState.Closed)
                 {
-                    if (koneksi.State == System.Data.ConnectionState.Closed)
+                    koneksi.Open();
+                }
+
+                // Check if room_id exists
+                string checkQuery = "SELECT COUNT(*) FROM rooms WHERE room_id = @RoomID";
+                perintah = new MySqlCommand(checkQuery, koneksi);
+                perintah.Parameters.AddWithValue("@RoomID", txtRoomNumber.Text);
+                int count = Convert.ToInt32(perintah.ExecuteScalar());
+
+                if (count == 0) // Room does not exist
+                {
+                    // Insert room into database
+                    query = "INSERT INTO rooms (room_id, room_number, status, capacity, floor, phone_number) " +
+                            "VALUES (@RoomID, @RoomNumber, @Status, @Capacity, @Floor, @PhoneNumber)";
+                    perintah = new MySqlCommand(query, koneksi);
+                    perintah.Parameters.AddWithValue("@RoomID", txtRoomNumber.Text);
+                    perintah.Parameters.AddWithValue("@RoomNumber", txtRoomNumber.Text);
+                    perintah.Parameters.AddWithValue("@Status", comboBoxStatus.SelectedItem.ToString());
+                    perintah.Parameters.AddWithValue("@Capacity", comboBoxCapacity.SelectedItem.ToString());
+                    perintah.Parameters.AddWithValue("@Floor", comboBoxFloor.SelectedItem.ToString());
+                    perintah.Parameters.AddWithValue("@PhoneNumber", txtPhoneNumber.Text);
+
+                    int res = perintah.ExecuteNonQuery();
+                    koneksi.Close();
+
+                    if (res == 1)
                     {
-                        koneksi.Open();
-                    }
+                        MessageBox.Show("Insert Data Success ...");
 
-                    // Check if room_id exists
-                    string checkQuery = string.Format("SELECT COUNT(*) FROM rooms WHERE room_id = '{0}';", txtRoomNumber.Text);
-                    perintah = new MySqlCommand(checkQuery, koneksi);
-                    int count = Convert.ToInt32(perintah.ExecuteScalar());
-
-                    if (count == 0)
-                    {
-                        query = string.Format(
-                            "INSERT INTO rooms (room_id, room_number, status, capacity, floor, phone_number) VALUES ('{0}', '{1}', '{2}', '{3}', '{4}', '{5}')",
-                            txtRoomNumber.Text,
-                            txtRoomNumber.Text,
-                            comboBoxStatus.SelectedItem.ToString(),
-                            comboBoxCapacity.SelectedItem.ToString(),
-                            comboBoxFloor.SelectedItem.ToString(),
-                            txtPhoneNumber.Text  // Adding phone number
-                        );
-                        perintah = new MySqlCommand(query, koneksi);
-                        int res = perintah.ExecuteNonQuery();
-                        koneksi.Close();
-
-                        if (res == 1)
-                        {
-                            MessageBox.Show("Insert Data Success ...");
-                            RoomManagementForm_Load(null, null);
-                        }
-                        else
-                        {
-                            MessageBox.Show("Failed to insert data...");
-                        }
+                        // Notify the RoomForm to refresh room list
+                        NotifyRoomFormToRefresh();
                     }
                     else
                     {
-                        MessageBox.Show("The specified Room ID already exists.");
+                        MessageBox.Show("Failed to insert data...");
                     }
                 }
-                catch (Exception ex)
+                else
                 {
-                    MessageBox.Show(ex.ToString());
+                    MessageBox.Show("The specified Room already exists.");
                 }
             }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
         }
+
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
