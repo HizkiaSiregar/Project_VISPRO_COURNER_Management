@@ -89,7 +89,7 @@
             this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(141)))), ((int)(((byte)(138)))));
             this.label1.Font = new System.Drawing.Font("Georgia", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(750, 3);
+            this.label1.Location = new System.Drawing.Point(925, 9);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(1208, 108);
@@ -112,7 +112,7 @@
             this.paymentsToolStripMenuItem,
             this.settingsToolStripMenuItem,
             this.logoutToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(592, 111);
+            this.menuStrip1.Location = new System.Drawing.Point(633, 119);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(1644, 64);
             this.menuStrip1.TabIndex = 7;
@@ -171,10 +171,10 @@
             // 
             this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(-663, 1);
+            this.pictureBox1.Location = new System.Drawing.Point(-927, -62);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(4846, 190);
+            this.pictureBox1.Size = new System.Drawing.Size(4140, 253);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 8;
             this.pictureBox1.TabStop = false;
@@ -238,14 +238,13 @@
             // 
             // panel1
             // 
-            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(195)))), ((int)(((byte)(165)))));
             this.panel1.Controls.Add(this.dataGridView1);
             this.panel1.Controls.Add(this.label8);
             this.panel1.Location = new System.Drawing.Point(543, 212);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1999, 420);
+            this.panel1.Size = new System.Drawing.Size(2060, 420);
             this.panel1.TabIndex = 23;
             // 
             // dataGridView1
@@ -267,7 +266,7 @@
             this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(56)))), ((int)(((byte)(50)))));
             this.label8.Location = new System.Drawing.Point(0, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(1999, 54);
+            this.label8.Size = new System.Drawing.Size(2060, 54);
             this.label8.TabIndex = 11;
             this.label8.Text = "Payment Overview";
             // 
@@ -293,8 +292,7 @@
             // 
             // panel2
             // 
-            this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel2.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(195)))), ((int)(((byte)(165)))));
             this.panel2.Controls.Add(this.datePaymentDate);
             this.panel2.Controls.Add(this.label5);
@@ -328,7 +326,7 @@
             this.panel2.Controls.Add(this.label22);
             this.panel2.Location = new System.Drawing.Point(543, 650);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1999, 1166);
+            this.panel2.Size = new System.Drawing.Size(2060, 1166);
             this.panel2.TabIndex = 36;
             this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
@@ -591,7 +589,7 @@
             this.label22.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(56)))), ((int)(((byte)(50)))));
             this.label22.Location = new System.Drawing.Point(0, 0);
             this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(1999, 54);
+            this.label22.Size = new System.Drawing.Size(2060, 54);
             this.label22.TabIndex = 11;
             this.label22.Text = "Add New Payment";
             // 
@@ -604,7 +602,7 @@
             this.label4.ForeColor = System.Drawing.Color.White;
             this.label4.Location = new System.Drawing.Point(-2, 1830);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(2977, 50);
+            this.label4.Size = new System.Drawing.Size(3059, 50);
             this.label4.TabIndex = 37;
             this.label4.Text = "© 2024 Corner Kost. All rights reserved.\r\n";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;

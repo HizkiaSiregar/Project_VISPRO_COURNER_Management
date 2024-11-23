@@ -156,7 +156,7 @@
             this.logoutToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(633, 119);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1650, 68);
+            this.menuStrip1.Size = new System.Drawing.Size(1644, 64);
             this.menuStrip1.TabIndex = 13;
             this.menuStrip1.Text = "menuStrip1";
             // 
